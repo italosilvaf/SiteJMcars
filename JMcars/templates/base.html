@@ -1,0 +1,389 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {% block titulo_da_guia %} {% endblock %}
+
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="description"
+      content="Tromic car accessories bootstrap 5 template is an awesome website template for any modern car accessories shop."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
+    <link rel="" type="" href="" />
+
+    <!-- CSS
+    ============================================ -->
+
+    <!-- Vendor CSS (Contain Bootstrap, Icon Fonts) -->
+    <link
+      rel="stylesheet"
+      href="{% static 'tromic/assets/css/vendor/font-awesome.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'tromic/assets/css/vendor/Pe-icon-7-stroke.css' %}"
+    />
+
+    <!-- Plugin CSS (Global Plugins Files) -->
+    <link
+      rel="stylesheet"
+      href="{% static 'tromic/assets/css/plugins/animate.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'tromic/assets/css/plugins/jquery-ui.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'tromic/assets/css/plugins/swiper-bundle.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'tromic/assets/css/plugins/nice-select.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'tromic/assets/css/plugins/magnific-popup.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'tromic/assets/css/plugins/ion.rangeSlider.min.css' %}"
+    />
+
+    <!-- Animate on Scroll CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{% static 'tromic/assets/css/style.css' %}" />
+
+    <!-- Style -->
+    <style>
+      @media (min-width: 992px) {
+        .row {
+          justify-content: space-between;
+        }
+      }
+
+      .vazio {
+        padding: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="preloader-activate preloader-active open_tm_preloader">
+      <div class="preloader-area-wrap">
+        <div
+          class="spinner d-flex justify-content-center align-items-center h-100"
+        >
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+        </div>
+      </div>
+    </div>
+    <div class="main-wrapper">
+      <!-- Begin Main Header Area -->
+      <header class="main-header-area">
+        <div class="vazio"></div>
+        <div class="header-middle py-6 py-lg-0 bg-white fixed-top">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-12">
+                <div class="header-middle-wrap position-relative">
+                  <a href="index.html" class="header-logo">
+                    <img
+                      src="{% static 'tromic/assets/images/logo/dark.png' %}"
+                      alt="Header Logo"
+                    />
+                  </a>
+
+                  <div class="main-menu d-none d-lg-block">
+                    <nav class="main-nav">
+                      <ul>
+                        <li>
+                          <a href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li>
+                          <a href="#">Sobre Nós</a>
+                        </li>
+                        <li>
+                          <a href="#">Estoque</a>
+                        </li>
+                        <li class="drop-holder">
+                          <a href="index.html"
+                            >Fale Conosco
+                            <i class="pe-7s-angle-down"></i>
+                          </a>
+                          <ul class="drop-menu">
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-instagram"></i> Instagram</a
+                              >
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-whatsapp"></i> Whatsapp</a
+                              >
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-facebook"></i> Facebook</a
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <div class="header-right">
+                    <ul>
+                      <li class="mobile-menu_wrap d-block d-lg-none">
+                        <a
+                          href="#mobileMenu"
+                          class="mobile-menu_btn toolbar-btn pl-0"
+                        >
+                          <i class="pe-7s-menu"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-menu_wrapper" id="mobileMenu">
+          <div class="tromic-offcanvas-body">
+            <div class="inner-body">
+              <div class="tromic-offcanvas-top">
+                <a href="#" class="button-close"><i class="pe-7s-close"></i></a>
+              </div>
+              <div class="offcanvas-menu_area">
+                <nav class="offcanvas-navigation">
+                  <ul class="mobile-menu">
+                    <li>
+                      <a href="{% url 'home' %}">
+                        <span class="mm-text">Home</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="mm-text">Sobre Nós</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="mm-text">Loja</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="mm-text">Fale Conosco</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Main Header Area End Here -->
+
+      {% block conteudo %} {% endblock %}
+
+      <!-- Begin Footer Area -->
+      <div class="footer-area">
+        <div
+          class="footer-top section-space-y-axis-100 text-lavender"
+          data-bg-image="{% static 'tromic/assets/images/background-img/1-4-1920x419.png' %}"
+        >
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3 row-item-footer">
+                <div class="widget-item">
+                  <div class="footer-logo pb-4">
+                    <a href="index.html">
+                      <img
+                        src="{% static 'tromic/assets/images/logo/light.png' %}"
+                        alt="Logo"
+                      />
+                    </a>
+                  </div>
+                  <p class="short-desc mb-2">
+                    Lorem ipsum dolor sit amet, consectet adipisicing elit, sed
+                    do eiusmod tempor incidi ut labore et dolore magna aliqua.
+                  </p>
+                  <div class="social-link pt-2">
+                    <ul>
+                      <li>
+                        <a
+                          href="#"
+                          data-tippy="Instagram"
+                          data-tippy-inertia="true"
+                          data-tippy-animation="shift-away"
+                          data-tippy-delay="50"
+                          data-tippy-arrow="true"
+                          data-tippy-theme="sharpborder"
+                        >
+                          <i class="fa fa-instagram"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          data-tippy="Whatsapp"
+                          data-tippy-inertia="true"
+                          data-tippy-animation="shift-away"
+                          data-tippy-delay="50"
+                          data-tippy-arrow="true"
+                          data-tippy-theme="sharpborder"
+                        >
+                          <i class="fa fa-whatsapp"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          data-tippy="Facebook"
+                          data-tippy-inertia="true"
+                          data-tippy-animation="shift-away"
+                          data-tippy-delay="50"
+                          data-tippy-arrow="true"
+                          data-tippy-theme="sharpborder"
+                        >
+                          <i class="fa fa-facebook"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-4 col-sm-4 pt-8 pt-lg-0">
+                <div class="widget-item">
+                  <h3 class="widget-title mb-5">JMcars</h3>
+                  <ul class="widget-list-item">
+                    <li>
+                      <i class="fa fa-chevron-right"></i>
+                      <a href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li>
+                      <i class="fa fa-chevron-right"></i>
+                      <a href="#">Sobre Nós</a>
+                    </li>
+                    <li>
+                      <i class="fa fa-chevron-right"></i>
+                      <a href="#">Estoque</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-4 col-sm-4 pt-8 pt-lg-0">
+                <div class="widget-item">
+                  <h3 class="widget-title mb-5">Carros</h3>
+                  <ul class="widget-list-item">
+                    <li>
+                      <i class="fa fa-chevron-right"></i>
+                      <a href="{% url 'home' %}">Novos</a>
+                    </li>
+                    <li>
+                      <i class="fa fa-chevron-right"></i>
+                      <a href="#">Seminovos</a>
+                    </li>
+                    <li>
+                      <i class="fa fa-chevron-right"></i>
+                      <a href="#">Usados</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-3 pt-8 pt-lg-0 row-final">
+                <div class="widget-item">
+                  <h3 class="widget-title mb-5">Entre em Contato</h3>
+                </div>
+                <div class="widget-contact-info pb-2">
+                  <ul>
+                    <li>Atendimento 100% online</li>
+                    <li>Horário de Atendimento: <br />Das 08:00 às 18:00</li>
+
+                    <li>
+                      <a href="mailto://info@example.com">info@example.com</a>
+                    </li>
+                    <li>
+                      <a href="tel://+68-120034509">(+34) 9000-0000</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom bg-midnight-express py-3">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="copyright">
+                  <span class="copyright-text">
+                    Italo SF © 2022 -
+                    <a
+                      href="https://www.instagram.com/italo_silvaf"
+                      rel="noopener"
+                      target="_blank"
+                      >Instagram</a
+                    >
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer Area End Here -->
+
+      <!-- Begin Scroll To Top -->
+      <a class="scroll-to-top" href="">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+      <!-- Scroll To Top End Here -->
+    </div>
+
+    <!-- Global Vendor, plugins JS -->
+
+    <!-- JS Files
+    ============================================ -->
+    <!-- Global Vendor, plugins JS -->
+
+    <!-- Vendor JS -->
+    <script src="{% static 'tromic/assets/js/vendor/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'tromic/assets/js/vendor/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'tromic/assets/js/vendor/jquery-migrate-3.3.2.min.js' %}"></script>
+    <script src="{% static 'tromic/assets/js/vendor/modernizr-3.11.2.min.js' %}"></script>
+
+    <!--Plugins JS-->
+    <script src="{% static 'tromic/assets/js/plugins/wow.min.js' %}"></script>
+    <script src="{% static 'tromic/assets/js/plugins/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'tromic/assets/js/plugins/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'tromic/assets/js/plugins/jquery.nice-select.js' %}"></script>
+    <script src="{% static 'tromic/assets/js/plugins/parallax.min.js' %}"></script>
+    <script src="{% static 'tromic/assets/js/plugins/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'tromic/assets/js/plugins/tippy.min.js' %}"></script>
+    <script src="{% static 'tromic/assets/js/plugins/ion.rangeSlider.min.js' %}"></script>
+    <script src="{% static 'tromic/assets/js/plugins/mailchimp-ajax.js' %}"></script>
+
+    <!--Main JS (Common Activation Codes)-->
+    <script src="{% static 'tromic/assets/js/main.js' %}"></script>
+
+    <!-- Animate on Scroll JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
