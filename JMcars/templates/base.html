@@ -64,34 +64,30 @@
 
     <!-- Style -->
     <style>
+      body {
+        padding-top: 40px;
+      }
+
+      .mobile_sobrepor {
+        z-index: 2;
+      }
+
+      .fixed-top {
+        z-index: 1;
+      }
+
       @media (min-width: 992px) {
         .row {
           justify-content: space-between;
         }
       }
-
-      .vazio {
-        padding: 40px;
-      }
     </style>
   </head>
 
   <body>
-    <div class="preloader-activate preloader-active open_tm_preloader">
-      <div class="preloader-area-wrap">
-        <div
-          class="spinner d-flex justify-content-center align-items-center h-100"
-        >
-          <div class="bounce1"></div>
-          <div class="bounce2"></div>
-          <div class="bounce3"></div>
-        </div>
-      </div>
-    </div>
     <div class="main-wrapper">
       <!-- Begin Main Header Area -->
       <header class="main-header-area">
-        <div class="vazio"></div>
         <div class="header-middle py-6 py-lg-0 bg-white fixed-top">
           <div class="container">
             <div class="row align-items-center">
@@ -103,7 +99,6 @@
                       alt="Header Logo"
                     />
                   </a>
-
                   <div class="main-menu d-none d-lg-block">
                     <nav class="main-nav">
                       <ul>
@@ -111,13 +106,13 @@
                           <a href="{% url 'home' %}">Home</a>
                         </li>
                         <li>
-                          <a href="#">Sobre Nós</a>
+                          <a href="{% url 'about' %}">Sobre Nós</a>
                         </li>
                         <li>
                           <a href="#">Estoque</a>
                         </li>
                         <li class="drop-holder">
-                          <a href="index.html"
+                          <a href="#"
                             >Fale Conosco
                             <i class="pe-7s-angle-down"></i>
                           </a>
@@ -159,9 +154,16 @@
             </div>
           </div>
         </div>
-        <div class="mobile-menu_wrapper" id="mobileMenu">
+        <div class="mobile-menu_wrapper mobile_sobrepor" id="mobileMenu">
           <div class="tromic-offcanvas-body">
             <div class="inner-body">
+              <div class="offcanvas-user-info text-center px-6 pb-5">
+                <div class="text-silver">
+                  <p class="shipping mb-0">
+                    JM<span class="text-primary">cars</span>
+                  </p>
+                </div>
+              </div>
               <div class="tromic-offcanvas-top">
                 <a href="#" class="button-close"><i class="pe-7s-close"></i></a>
               </div>
@@ -174,19 +176,45 @@
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="{% url 'about' %}">
                         <span class="mm-text">Sobre Nós</span>
                       </a>
                     </li>
                     <li>
                       <a href="#">
-                        <span class="mm-text">Loja</span>
+                        <span class="mm-text">Estoque</span>
                       </a>
                     </li>
-                    <li>
+                    <li class="menu-item-has-children">
                       <a href="#">
-                        <span class="mm-text">Fale Conosco</span>
+                        <span class="mm-text"
+                          >Fale Conosco
+                          <i class="pe-7s-angle-down"></i>
+                        </span>
                       </a>
+                      <ul class="sub-menu">
+                        <li>
+                          <a href="#">
+                            <span class="mm-text"
+                              >Instagram<i class="fa fa-instagram"></i>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <span class="mm-text"
+                              >Whatsapp<i class="fa fa-whatsapp"></i
+                            ></span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <span class="mm-text"
+                              >Facebook<i class="fa fa-facebook"></i
+                            ></span>
+                          </a>
+                        </li>
+                      </ul>
                     </li>
                   </ul>
                 </nav>
@@ -276,7 +304,7 @@
                     </li>
                     <li>
                       <i class="fa fa-chevron-right"></i>
-                      <a href="#">Sobre Nós</a>
+                      <a href="{% url 'about' %}">Sobre Nós</a>
                     </li>
                     <li>
                       <i class="fa fa-chevron-right"></i>
@@ -291,7 +319,7 @@
                   <ul class="widget-list-item">
                     <li>
                       <i class="fa fa-chevron-right"></i>
-                      <a href="{% url 'home' %}">Novos</a>
+                      <a href="#">Novos</a>
                     </li>
                     <li>
                       <i class="fa fa-chevron-right"></i>
