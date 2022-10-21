@@ -12,6 +12,35 @@
   .imagem_grande_produto {
     margin-right: 20px;
   }
+
+  .titulo-lista{
+    font-size: 50px;
+  }
+
+  .container-lista{
+    flex: 1 0 400px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px;
+  }
+
+  .lista{
+    font-size: 16px;
+    line-height: 40px;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .itens-lista{
+    font-weight: 500;
+  }
+
+  .itens-lista-opcionais{
+    margin-left: 30px;
+    line-height: 25px;
+    list-style-type: circle;
+  }
 </style>
 
 <!-- Begin Main Content Area -->
@@ -283,8 +312,9 @@
             >
               <div class="product-grid-view row">
                 <!-- Itens Grid -->
+                {% for car in cars %}
                 <div
-                  class="col-xl-4 col-sm-6 pt-6"
+                  class="pt-5 col-xl-4 col-sm-6 item-grid"
                   data-aos="fade-up"
                   data-aos-duration="1000"
                 >
@@ -299,302 +329,19 @@
                       </a>
                     </div>
                     <div class="product-content">
-                      <a class="product-name pb-1" href="#">Modelo do Carro</a>
+                      <a class="product-name pb-1" href="#">{{ car.modelo }}</a>
                       <div class="">
                         <div class="price-box-holder">
                           <span>R$ </span>
-                          <span class="new-price text-primary">40.500,00</span>
+                          <span class="new-price text-primary"
+                            >{{ car.preco }}</span
+                          >
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div
-                  class="col-xl-4 col-sm-6 pt-6"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                >
-                  <div class="product-item">
-                    <div class="product-img img-zoom-effect">
-                      <a href="#">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-4-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-content">
-                      <a class="product-name pb-1" href="#">Modelo do Carro</a>
-                      <div class="">
-                        <div class="price-box-holder">
-                          <span>R$ </span>
-                          <span class="new-price text-primary">40.500,00</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="col-xl-4 col-sm-6 pt-6"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                >
-                  <div class="product-item">
-                    <div class="product-img img-zoom-effect">
-                      <a href="#">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-4-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-content">
-                      <a class="product-name pb-1" href="#">Modelo do Carro</a>
-                      <div class="">
-                        <div class="price-box-holder">
-                          <span>R$ </span>
-                          <span class="new-price text-primary">40.500,00</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="col-xl-4 col-sm-6 pt-6"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                >
-                  <div class="product-item">
-                    <div class="product-img img-zoom-effect">
-                      <a href="#">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-4-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-content">
-                      <a class="product-name pb-1" href="#">Modelo do Carro</a>
-                      <div class="">
-                        <div class="price-box-holder">
-                          <span>R$ </span>
-                          <span class="new-price text-primary">40.500,00</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="col-xl-4 col-sm-6 pt-6"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                >
-                  <div class="product-item">
-                    <div class="product-img img-zoom-effect">
-                      <a href="#">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-4-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-content">
-                      <a class="product-name pb-1" href="#">Modelo do Carro</a>
-                      <div class="">
-                        <div class="price-box-holder">
-                          <span>R$ </span>
-                          <span class="new-price text-primary">40.500,00</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="col-xl-4 col-sm-6 pt-6"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                >
-                  <div class="product-item">
-                    <div class="product-img img-zoom-effect">
-                      <a href="#">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-4-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-content">
-                      <a class="product-name pb-1" href="#">Modelo do Carro</a>
-                      <div class="">
-                        <div class="price-box-holder">
-                          <span>R$ </span>
-                          <span class="new-price text-primary">40.500,00</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="col-xl-4 col-sm-6 pt-6"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                >
-                  <div class="product-item">
-                    <div class="product-img img-zoom-effect">
-                      <a href="#">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-4-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-content">
-                      <a class="product-name pb-1" href="#">Modelo do Carro</a>
-                      <div class="">
-                        <div class="price-box-holder">
-                          <span>R$ </span>
-                          <span class="new-price text-primary">40.500,00</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="col-xl-4 col-sm-6 pt-6"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                >
-                  <div class="product-item">
-                    <div class="product-img img-zoom-effect">
-                      <a href="#">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-4-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-content">
-                      <a class="product-name pb-1" href="#">Modelo do Carro</a>
-                      <div class="">
-                        <div class="price-box-holder">
-                          <span>R$ </span>
-                          <span class="new-price text-primary">40.500,00</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="col-xl-4 col-sm-6 pt-6"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                >
-                  <div class="product-item">
-                    <div class="product-img img-zoom-effect">
-                      <a href="#">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-4-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-content">
-                      <a class="product-name pb-1" href="#">Modelo do Carro</a>
-                      <div class="">
-                        <div class="price-box-holder">
-                          <span>R$ </span>
-                          <span class="new-price text-primary">40.500,00</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="col-xl-4 col-sm-6 pt-6"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                >
-                  <div class="product-item">
-                    <div class="product-img img-zoom-effect">
-                      <a href="#">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-4-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-content">
-                      <a class="product-name pb-1" href="#">Modelo do Carro</a>
-                      <div class="">
-                        <div class="price-box-holder">
-                          <span>R$ </span>
-                          <span class="new-price text-primary">40.500,00</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="col-xl-4 col-sm-6 pt-6"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                >
-                  <div class="product-item">
-                    <div class="product-img img-zoom-effect">
-                      <a href="#">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-4-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-content">
-                      <a class="product-name pb-1" href="#">Modelo do Carro</a>
-                      <div class="">
-                        <div class="price-box-holder">
-                          <span>R$ </span>
-                          <span class="new-price text-primary">40.500,00</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="col-xl-4 col-sm-6 pt-6"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                >
-                  <div class="product-item">
-                    <div class="product-img img-zoom-effect">
-                      <a href="#">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-4-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-content">
-                      <a class="product-name pb-1" href="#">Modelo do Carro</a>
-                      <div class="">
-                        <div class="price-box-holder">
-                          <span>R$ </span>
-                          <span class="new-price text-primary">40.500,00</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {% endfor %}
                 <!-- End Item Grid -->
               </div>
             </div>
@@ -606,6 +353,8 @@
             >
               <div class="product-list-view row">
                 <!-- Itens List -->
+                {% for car in cars %}
+
                 <div class="col-12 pt-8">
                   <div class="product-list-item">
                     <div
@@ -621,365 +370,48 @@
                     </div>
                     <div class="product-list-content">
                       <a
-                        class="product-name pb-2"
+                        class="titulo-lista"
                         href="single-product-variable.html"
-                        >Modelo do Carro</a
+                      >
+                        {{ car.modelo }}</a
                       >
                       <div class="price-box pb-1">
                         <span>R$ </span>
-                        <span class="new-price text-primary">40.500,00</span>
+                        <span class="new-price text-primary"
+                          >{{ car.preco }}</span
+                        >
                       </div>
-                      <p class="short-desc mb-0">
-                        Integer commodo ligula in lectus porttitor tempus.
-                        Integer euismod, enim ut molestie dictum, nibh lectus
-                        scelerisque tellus, a dictum sem urna vel odio. Morbi
-                        sed quam vitae leo euismod sodales ac vel lacus. Sed
-                        fermentum erat sit amet faucibus egestas. Nunc rhoncus
-                        sem in orci blandit scelerisque. Suspendisse magna
-                        tortor, aliquet non eleifend.
+                      <p class="short-desc mb-0 pt-3">
+                        <div class="container-lista">
+                          <ul class="lista">
+                            <li><b class="itens-lista">Marca:</b> {{car.marca}}</li>
+                            <li><b class="itens-lista">Ano:</b> {{car.ano}}</li>
+                            <li><b class="itens-lista">Cor:</b> {{car.cor}}</li>
+                            <li><b class="itens-lista">Quilometragem:</b> {{car.quilometragem}}</li>
+                            <li><b class="itens-lista">Motorização:</b> {{car.motorizacao}}</li>
+                            <li><b class="itens-lista">Câmbio:</b> {{car.cambio}}</li>
+                          </ul>
+                          <ul class="lista">
+                            <li><b class="itens-lista">Opcionais: </b>
+                              <ul class="itens-lista-opcionais">
+                                <li>Ar-condicionado</li>
+                                <li>Direção Hidráulica</li>
+                                <li>Vidros elétricos</li>
+                                <li>Alarme</li>
+                              </ul>
+                            </li>
+                          </ul>
+  
+                        </div>
                       </p>
                     </div>
                   </div>
                 </div>
-                <div class="col-12 pt-8">
-                  <div class="product-list-item">
-                    <div
-                      class="product-list-img img-zoom-effect imagem_grande_produto"
-                    >
-                      <a href="single-product-variable.html">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-2-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-list-content">
-                      <a
-                        class="product-name pb-2"
-                        href="single-product-variable.html"
-                        >Modelo do Carro</a
-                      >
-                      <div class="price-box pb-1">
-                        <span>R$ </span>
-                        <span class="new-price text-primary">40.500,00</span>
-                      </div>
-                      <p class="short-desc mb-0">
-                        Integer commodo ligula in lectus porttitor tempus.
-                        Integer euismod, enim ut molestie dictum, nibh lectus
-                        scelerisque tellus, a dictum sem urna vel odio. Morbi
-                        sed quam vitae leo euismod sodales ac vel lacus. Sed
-                        fermentum erat sit amet faucibus egestas. Nunc rhoncus
-                        sem in orci blandit scelerisque. Suspendisse magna
-                        tortor, aliquet non eleifend.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 pt-8">
-                  <div class="product-list-item">
-                    <div
-                      class="product-list-img img-zoom-effect imagem_grande_produto"
-                    >
-                      <a href="single-product-variable.html">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-2-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-list-content">
-                      <a
-                        class="product-name pb-2"
-                        href="single-product-variable.html"
-                        >Modelo do Carro</a
-                      >
-                      <div class="price-box pb-1">
-                        <span>R$ </span>
-                        <span class="new-price text-primary">40.500,00</span>
-                      </div>
-                      <p class="short-desc mb-0">
-                        Integer commodo ligula in lectus porttitor tempus.
-                        Integer euismod, enim ut molestie dictum, nibh lectus
-                        scelerisque tellus, a dictum sem urna vel odio. Morbi
-                        sed quam vitae leo euismod sodales ac vel lacus. Sed
-                        fermentum erat sit amet faucibus egestas. Nunc rhoncus
-                        sem in orci blandit scelerisque. Suspendisse magna
-                        tortor, aliquet non eleifend.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 pt-8">
-                  <div class="product-list-item">
-                    <div
-                      class="product-list-img img-zoom-effect imagem_grande_produto"
-                    >
-                      <a href="single-product-variable.html">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-2-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-list-content">
-                      <a
-                        class="product-name pb-2"
-                        href="single-product-variable.html"
-                        >Modelo do Carro</a
-                      >
-                      <div class="price-box pb-1">
-                        <span>R$ </span>
-                        <span class="new-price text-primary">40.500,00</span>
-                      </div>
-                      <p class="short-desc mb-0">
-                        Integer commodo ligula in lectus porttitor tempus.
-                        Integer euismod, enim ut molestie dictum, nibh lectus
-                        scelerisque tellus, a dictum sem urna vel odio. Morbi
-                        sed quam vitae leo euismod sodales ac vel lacus. Sed
-                        fermentum erat sit amet faucibus egestas. Nunc rhoncus
-                        sem in orci blandit scelerisque. Suspendisse magna
-                        tortor, aliquet non eleifend.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 pt-8">
-                  <div class="product-list-item">
-                    <div
-                      class="product-list-img img-zoom-effect imagem_grande_produto"
-                    >
-                      <a href="single-product-variable.html">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-2-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-list-content">
-                      <a
-                        class="product-name pb-2"
-                        href="single-product-variable.html"
-                        >Modelo do Carro</a
-                      >
-                      <div class="price-box pb-1">
-                        <span>R$ </span>
-                        <span class="new-price text-primary">40.500,00</span>
-                      </div>
-                      <p class="short-desc mb-0">
-                        Integer commodo ligula in lectus porttitor tempus.
-                        Integer euismod, enim ut molestie dictum, nibh lectus
-                        scelerisque tellus, a dictum sem urna vel odio. Morbi
-                        sed quam vitae leo euismod sodales ac vel lacus. Sed
-                        fermentum erat sit amet faucibus egestas. Nunc rhoncus
-                        sem in orci blandit scelerisque. Suspendisse magna
-                        tortor, aliquet non eleifend.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 pt-8">
-                  <div class="product-list-item">
-                    <div
-                      class="product-list-img img-zoom-effect imagem_grande_produto"
-                    >
-                      <a href="single-product-variable.html">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-2-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-list-content">
-                      <a
-                        class="product-name pb-2"
-                        href="single-product-variable.html"
-                        >Modelo do Carro</a
-                      >
-                      <div class="price-box pb-1">
-                        <span>R$ </span>
-                        <span class="new-price text-primary">40.500,00</span>
-                      </div>
-                      <p class="short-desc mb-0">
-                        Integer commodo ligula in lectus porttitor tempus.
-                        Integer euismod, enim ut molestie dictum, nibh lectus
-                        scelerisque tellus, a dictum sem urna vel odio. Morbi
-                        sed quam vitae leo euismod sodales ac vel lacus. Sed
-                        fermentum erat sit amet faucibus egestas. Nunc rhoncus
-                        sem in orci blandit scelerisque. Suspendisse magna
-                        tortor, aliquet non eleifend.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 pt-8">
-                  <div class="product-list-item">
-                    <div
-                      class="product-list-img img-zoom-effect imagem_grande_produto"
-                    >
-                      <a href="single-product-variable.html">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-2-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-list-content">
-                      <a
-                        class="product-name pb-2"
-                        href="single-product-variable.html"
-                        >Modelo do Carro</a
-                      >
-                      <div class="price-box pb-1">
-                        <span>R$ </span>
-                        <span class="new-price text-primary">40.500,00</span>
-                      </div>
-                      <p class="short-desc mb-0">
-                        Integer commodo ligula in lectus porttitor tempus.
-                        Integer euismod, enim ut molestie dictum, nibh lectus
-                        scelerisque tellus, a dictum sem urna vel odio. Morbi
-                        sed quam vitae leo euismod sodales ac vel lacus. Sed
-                        fermentum erat sit amet faucibus egestas. Nunc rhoncus
-                        sem in orci blandit scelerisque. Suspendisse magna
-                        tortor, aliquet non eleifend.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 pt-8">
-                  <div class="product-list-item">
-                    <div
-                      class="product-list-img img-zoom-effect imagem_grande_produto"
-                    >
-                      <a href="single-product-variable.html">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-2-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-list-content">
-                      <a
-                        class="product-name pb-2"
-                        href="single-product-variable.html"
-                        >Modelo do Carro</a
-                      >
-                      <div class="price-box pb-1">
-                        <span>R$ </span>
-                        <span class="new-price text-primary">40.500,00</span>
-                      </div>
-                      <p class="short-desc mb-0">
-                        Integer commodo ligula in lectus porttitor tempus.
-                        Integer euismod, enim ut molestie dictum, nibh lectus
-                        scelerisque tellus, a dictum sem urna vel odio. Morbi
-                        sed quam vitae leo euismod sodales ac vel lacus. Sed
-                        fermentum erat sit amet faucibus egestas. Nunc rhoncus
-                        sem in orci blandit scelerisque. Suspendisse magna
-                        tortor, aliquet non eleifend.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 pt-8">
-                  <div class="product-list-item">
-                    <div
-                      class="product-list-img img-zoom-effect imagem_grande_produto"
-                    >
-                      <a href="single-product-variable.html">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-2-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-list-content">
-                      <a
-                        class="product-name pb-2"
-                        href="single-product-variable.html"
-                        >Modelo do Carro</a
-                      >
-                      <div class="price-box pb-1">
-                        <span>R$ </span>
-                        <span class="new-price text-primary">40.500,00</span>
-                      </div>
-                      <p class="short-desc mb-0">
-                        Integer commodo ligula in lectus porttitor tempus.
-                        Integer euismod, enim ut molestie dictum, nibh lectus
-                        scelerisque tellus, a dictum sem urna vel odio. Morbi
-                        sed quam vitae leo euismod sodales ac vel lacus. Sed
-                        fermentum erat sit amet faucibus egestas. Nunc rhoncus
-                        sem in orci blandit scelerisque. Suspendisse magna
-                        tortor, aliquet non eleifend.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 pt-8">
-                  <div class="product-list-item">
-                    <div
-                      class="product-list-img img-zoom-effect imagem_grande_produto"
-                    >
-                      <a href="single-product-variable.html">
-                        <img
-                          class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-2-290x350.jpg' %}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="product-list-content">
-                      <a
-                        class="product-name pb-2"
-                        href="single-product-variable.html"
-                        >Modelo do Carro</a
-                      >
-                      <div class="price-box pb-1">
-                        <span>R$ </span>
-                        <span class="new-price text-primary">40.500,00</span>
-                      </div>
-                      <p class="short-desc mb-0">
-                        Integer commodo ligula in lectus porttitor tempus.
-                        Integer euismod, enim ut molestie dictum, nibh lectus
-                        scelerisque tellus, a dictum sem urna vel odio. Morbi
-                        sed quam vitae leo euismod sodales ac vel lacus. Sed
-                        fermentum erat sit amet faucibus egestas. Nunc rhoncus
-                        sem in orci blandit scelerisque. Suspendisse magna
-                        tortor, aliquet non eleifend.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                {% endfor %}
                 <!-- End Item List -->
               </div>
             </div>
           </div>
-          <!-- Pagination -->
-          <div class="pagination-area pt-10">
-            <nav aria-label="Page navigation example">
-              <ul class="pagination justify-content-end">
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous"
-                    >&laquo;</a
-                  >
-                </li>
-                <li class="page-item active">
-                  <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">&raquo;</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <!-- End Pagination -->
         </div>
       </div>
     </div>

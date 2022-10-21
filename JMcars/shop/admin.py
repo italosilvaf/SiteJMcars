@@ -1,5 +1,6 @@
 from django.contrib import admin
 from . models import Shop
+from . models import Car
 
 
 class ShopAdmin(admin.ModelAdmin):
@@ -9,3 +10,13 @@ class ShopAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Shop, ShopAdmin)
+
+
+class CarAdmin(admin.ModelAdmin):
+    list_display = ('id',  'modelo', 'cor', 'ano',
+                    'quilometragem', 'preco', 'publicado')
+    list_display_links = ('id', 'modelo')
+    list_editable = ('publicado',)
+
+
+admin.site.register(Car, CarAdmin)
