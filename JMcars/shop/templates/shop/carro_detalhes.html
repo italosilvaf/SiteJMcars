@@ -1,0 +1,256 @@
+{% extends 'base.html' %} {% load static %} {% block titulo_da_guia %}
+<title>JMcars - {{car.modelo}}</title>
+{% endblock %} {% block conteudo %}
+
+<style>
+  .text-color {
+    color: #444444;
+  }
+
+  .container_carro_detalhes {
+    z-index: 1;
+  }
+
+  .titulo-detalhes {
+    font-size: 50px;
+  }
+
+  .container-lista {
+    flex: 1 0 400px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: #444444;
+  }
+
+  .lista {
+    font-size: 16px;
+    line-height: 40px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+  }
+
+  .itens-lista {
+    font-weight: 500;
+  }
+
+  .itens-lista-opcionais {
+    margin-left: 50px;
+    line-height: 25px;
+    list-style-type: circle;
+  }
+
+  .titulo-tem-interesse {
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: 500;
+    color: #444444;
+  }
+
+  .btn-custom-size.lg-sizes {
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+  }
+</style>
+
+<!-- Begin Main Content Area  -->
+<main class="main-content mb-5">
+  <div
+    class="single-product-area section-space-top-100 container_carro_detalhes"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="single-product-img">
+            <div class="swiper-container single-product-slider">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <a
+                    href="{% static 'tromic/assets/images/product/large-size/2-1-618x578.jpg' %}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_um.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a
+                    href="{% static 'tromic/assets/images/product/large-size/2-2-618x578.jpg' %}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{% static 'tromic/assets/images/product/large-size/2-2-618x578.jpg' %}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a
+                    href="{% static 'tromic/assets/images/product/large-size/2-3-618x578.jpg' %}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{% static 'tromic/assets/images/product/large-size/2-3-618x578.jpg' %}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a
+                    href="{% static 'tromic/assets/images/product/large-size/2-4-618x578.jpg' %}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{% static 'tromic/assets/images/product/large-size/2-4-618x578.jpg' %}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a
+                    href="{% static 'tromic/assets/images/product/large-size/2-5-618x578.jpg' %}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{% static 'tromic/assets/images/product/large-size/2-5-618x578.jpg' %}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a
+                    href="{% static 'tromic/assets/images/product/large-size/2-6-618x578.jpg' %}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{% static 'tromic/assets/images/product/large-size/2-6-618x578.jpg' %}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="thumbs-arrow-holder">
+              <div class="swiper-container single-product-thumbs">
+                <div class="swiper-wrapper">
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{% static 'tromic/assets/images/product/large-size/2-1-618x578.jpg' %}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{% static 'tromic/assets/images/product/large-size/2-2-618x578.jpg' %}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{% static 'tromic/assets/images/product/large-size/2-3-618x578.jpg' %}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{% static 'tromic/assets/images/product/large-size/2-4-618x578.jpg' %}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{% static 'tromic/assets/images/product/large-size/2-5-618x578.jpg' %}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{% static 'tromic/assets/images/product/large-size/2-6-618x578.jpg' %}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                </div>
+              </div>
+              <!-- Add Arrows -->
+              <div class="thumbs-button-wrap d-none d-md-block">
+                <div class="thumbs-button-prev">
+                  <i class="pe-7s-angle-left"></i>
+                </div>
+                <div class="thumbs-button-next">
+                  <i class="pe-7s-angle-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 pt-9 pt-lg-0">
+          <div class="single-product-content">
+            <h2 class="titulo-detalhes mb-3">{{ car.modelo }}</h2>
+            <div class="price-box pb-3 container-preco">
+              <span class="new-price text-color">R$</span>
+              <span class="new-price text-danger">{{ car.preco }}</span>
+            </div>
+            <div class="container-lista">
+              <ul class="lista">
+                <li><b class="itens-lista">Marca:</b> {{car.marca}}</li>
+                <li><b class="itens-lista">Ano:</b> {{car.ano}}</li>
+                <li><b class="itens-lista">Cor:</b> {{car.cor}}</li>
+                <li>
+                  <b class="itens-lista">Quilometragem:</b>
+                  {{car.quilometragem}}
+                </li>
+                <li>
+                  <b class="itens-lista">Motorização:</b> {{car.motorizacao}}
+                </li>
+                <li><b class="itens-lista">Câmbio:</b> {{car.cambio}}</li>
+              </ul>
+              <ul class="lista">
+                <li>
+                  <b class="itens-lista">Opcionais: </b>
+                  <ul class="itens-lista-opcionais">
+                    <li>Ar-condicionado</li>
+                    <li>Direção Hidráulica</li>
+                    <li>Vidros elétricos</li>
+                    <li>Alarme</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="titulo-tem-interesse">
+              Tem Interesse? Entre em contato.
+            </div>
+            <ul class="quantity-with-btn pb-9 pt-2">
+              <li class="add-to-cart">
+                <a
+                  class="btn btn-custom-size lg-sizes btn-primary"
+                  href="cart.html"
+                  >Entrar em contato</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<!-- Main Content Area End Here  -->
+
+{% endblock %}

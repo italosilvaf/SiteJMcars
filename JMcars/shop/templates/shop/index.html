@@ -305,16 +305,16 @@
                 >
                   <div class="product-item">
                     <div class="product-img img-zoom-effect">
-                      <a href="#">
+                      <a href="{% url 'carro_detalhes' car.id %}">
                         <img
                           class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-4-290x350.jpg' %}"
+                          src="{{ car.imagem_um.url }}"
                           alt="Product Images"
                         />
                       </a>
                     </div>
                     <div class="product-content">
-                      <a class="product-name pb-1" href="#">{{ car.modelo }}</a>
+                      <a class="product-name pb-1" href="{% url 'carro_detalhes' car.id %}">{{ car.modelo }}</a>
                       <div class="">
                         <div class="price-box-holder">
                           <span>R$ </span>
@@ -345,10 +345,10 @@
                     <div
                       class="product-list-img img-zoom-effect imagem_grande_produto"
                     >
-                      <a href="single-product-variable.html">
+                      <a href="{% url 'carro_detalhes' car.id %}">
                         <img
                           class="img-full"
-                          src="{% static 'tromic/assets/images/product/medium-size/shop/1-2-290x350.jpg' %}"
+                          src="{{ car.imagem_um.url }}"
                           alt="Product Images"
                         />
                       </a>
@@ -356,7 +356,7 @@
                     <div class="product-list-content">
                       <a
                         class="titulo-lista"
-                        href="single-product-variable.html"
+                        href="{% url 'carro_detalhes' car.id %}"
                       >
                         {{ car.modelo }}</a
                       >

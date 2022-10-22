@@ -1,4 +1,3 @@
-from email.policy import default
 from django.db import models
 
 
@@ -18,6 +17,7 @@ class Shop(models.Model):
 
 
 class Car(models.Model):
+
     modelo = models.CharField(
         max_length=50, verbose_name='Modelo', default=None)
     marca = models.CharField(
@@ -34,6 +34,26 @@ class Car(models.Model):
         max_length=50, verbose_name='Preço', default=None)
     publicado = models.BooleanField(
         verbose_name='Publicado', default=False)
+    imagem_um = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=False, null=False, default=None, verbose_name='Imagem 1 (Capa)')
+    imagem_dois = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 2')
+    imagem_tres = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 3')
+    imagem_quatro = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 4')
+    imagem_cinco = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 4')
+    imagem_seis = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 6')
+    imagem_sete = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 7')
+    imagem_oito = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 8')
+    imagem_nove = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 9')
+    imagem_dez = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 10')
 
     def __str__(self):
         return self.modelo
