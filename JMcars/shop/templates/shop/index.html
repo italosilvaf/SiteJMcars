@@ -17,11 +17,20 @@
     font-size: 50px;
   }
 
+  .row-grid-final{
+    align-items: center;
+    justify-content: center;
+  }
+
+  .item-grid{
+    width: 33.333333%;
+  }
+
   .container-lista{
     flex: 1 0 400px;
     display: flex;
     flex-wrap: wrap;
-    gap: 100px;
+    gap: 10px;
   }
 
   .lista{
@@ -84,44 +93,20 @@
                 <ul class="widgets-category">
                   <li>
                     <a href="#"
-                      >Accesasories
+                      >Novos
                       <span>(6)</span>
                     </a>
                   </li>
                   <li>
                     <a href="#"
-                      >Computer
-                      <span>(4)</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#"
-                      >Covid-19
-                      <span>(2)</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#"
-                      >Electronics
+                      >Seminovos
                       <span>(6)</span>
                     </a>
                   </li>
                   <li>
                     <a href="#"
-                      >Frame Sunglasses
-                      <span>(12)</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#"
-                      >Furniture
-                      <span>(7)</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#"
-                      >Genuine Leather
-                      <span>(9)</span>
+                      >Usados
+                      <span>(6)</span>
                     </a>
                   </li>
                 </ul>
@@ -155,7 +140,7 @@
                       id="color-selection-1"
                     />
                     <label class="label-checkbox mb-0" for="color-selection-1"
-                      >Red
+                      >Branco
                       <span>(12)</span>
                     </label>
                   </li>
@@ -167,7 +152,7 @@
                       checked
                     />
                     <label class="label-checkbox mb-0" for="color-selection-2"
-                      >Light Black
+                      >Preto
                       <span>(09)</span>
                     </label>
                   </li>
@@ -178,7 +163,7 @@
                       id="color-selection-3"
                     />
                     <label class="label-checkbox mb-0" for="color-selection-3"
-                      >Dark Blue
+                      >Prata
                       <span>(7)</span>
                     </label>
                   </li>
@@ -189,7 +174,7 @@
                       id="color-selection-4"
                     />
                     <label class="label-checkbox mb-0" for="color-selection-4"
-                      >Gray
+                      >Outros
                       <span>(11)</span>
                     </label>
                   </li>
@@ -310,11 +295,11 @@
               role="tabpanel"
               aria-labelledby="grid-view-tab"
             >
-              <div class="product-grid-view row">
+              <div class="product-grid-view row row-grid-final">
                 <!-- Itens Grid -->
                 {% for car in cars %}
                 <div
-                  class="pt-5 col-xl-4 col-sm-6 item-grid"
+                  class="col-xl-4 col-sm-6 pt-6"
                   data-aos="fade-up"
                   data-aos-duration="1000"
                 >
@@ -351,7 +336,7 @@
               role="tabpanel"
               aria-labelledby="list-view-tab"
             >
-              <div class="product-list-view row">
+              <div class="product-list-view itens-grid">
                 <!-- Itens List -->
                 {% for car in cars %}
 
@@ -412,6 +397,43 @@
               </div>
             </div>
           </div>
+          <!-- Paginator -->
+          <div class="pagination-area pt-10">
+            <ul class="pagination justify-content-end">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">&laquo;</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&lsaquo;</a>
+                </li>
+                {% endif %}
+        
+                {% for num in page_obj.paginator.page_range %}
+        
+                {% if page_obj.number == num %}
+                <li class="page-item active">
+                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                </li>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                </li>
+                {% endif %}
+        
+                {% endfor %}
+        
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">&rsaquo;</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+                </li>
+                {% endif %}
+            </ul>
+          </div>
+          <!-- End Paginator -->
         </div>
       </div>
     </div>
