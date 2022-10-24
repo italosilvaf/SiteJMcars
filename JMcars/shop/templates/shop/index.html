@@ -50,6 +50,11 @@
     line-height: 25px;
     list-style-type: circle;
   }
+
+  .paginator {
+        z-index: 1;
+      }
+
 </style>
 
 <!-- Begin Main Content Area -->
@@ -110,23 +115,6 @@
                     </a>
                   </li>
                 </ul>
-              </div>
-            </div>
-            <div class="widgets-area widgets-filter mb-9">
-              <h2 class="widgets-title mb-5">Price Filter</h2>
-              <div class="price-filter">
-                <input
-                  type="text"
-                  class="tromic-range-slider"
-                  name="tromic-range-slider"
-                  value=""
-                  data-type="double"
-                  data-min="16"
-                  data-from="16"
-                  data-to="300"
-                  data-max="350"
-                  data-grid="false"
-                />
               </div>
             </div>
             <div class="widgets-area mb-9">
@@ -412,7 +400,7 @@
                 {% for num in page_obj.paginator.page_range %}
         
                 {% if page_obj.number == num %}
-                <li class="page-item active">
+                <li class="page-item active paginator">
                     <a class="page-link" href="?page={{ num }}">{{ num }}</a>
                 </li>
                 {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}

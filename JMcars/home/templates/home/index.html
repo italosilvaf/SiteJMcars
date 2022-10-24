@@ -2,6 +2,12 @@
 <title>JMcars - Home</title>
 {% endblock %} {% block conteudo %} {% for home in valores %}
 
+<style>
+  .icone-quadrado-grande {
+    width: 80px;
+  }
+</style>
+
 <!-- Begin Slider Area -->
 <div class="slide-inner bg-height" data-bg-image="media/{{home.imagem_home}} ">
   <div class="container">
@@ -121,9 +127,9 @@
         <div class="row shipping-wrap py-5 py-xl-0">
           <div class="col-lg-4">
             <div class="shipping-item">
-              <div class="shipping-img">
+              <div class="shipping-img icone-quadrado-grande">
                 <img
-                  src="{% static 'tromic/assets/images/shipping/icon/plane.png' %}"
+                  src="{% static 'tromic/assets/images/shipping/icon/atendimento.png' %}"
                   alt="Shipping Icon"
                 />
               </div>
@@ -137,9 +143,9 @@
           </div>
           <div class="col-lg-4 pt-4 pt-lg-0">
             <div class="shipping-item">
-              <div class="shipping-img">
+              <div class="shipping-img icone-quadrado-grande">
                 <img
-                  src="{% static 'tromic/assets/images/shipping/icon/earphones.png' %}"
+                  src="{% static 'tromic/assets/images/shipping/icon/preço.png' %}"
                   alt="Shipping Icon"
                 />
               </div>
@@ -153,9 +159,9 @@
           </div>
           <div class="col-lg-4 pt-4 pt-lg-0">
             <div class="shipping-item">
-              <div class="shipping-img">
+              <div class="shipping-img icone-quadrado-grande">
                 <img
-                  src="{% static 'tromic/assets/images/shipping/icon/shield.png' %}"
+                  src="{% static 'tromic/assets/images/shipping/icon/segurança.png' %}"
                   alt="Shipping Icon"
                 />
               </div>
