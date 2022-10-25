@@ -14,7 +14,9 @@
   }
 
   .titulo-lista{
-    font-size: 50px;
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 20px;
   }
 
   .row-grid-final{
@@ -35,10 +37,10 @@
 
   .lista{
     font-size: 16px;
-    line-height: 40px;
+    line-height: 35px;
     display: flex;
     flex-direction: column;
-
+    font-weight: var(--bs-body-font-weight);
   }
 
   .itens-lista{
@@ -51,9 +53,223 @@
     list-style-type: circle;
   }
 
+  .informacao-carro{
+    font-family: var(--bs-body-font-family);
+    margin-left: 10px;
+    display: grid;
+    height: 200px;
+  }
+
+  .title-product{
+    color: #535353;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .product-item{
+     box-shadow: 0px 2px 2px #ccc;
+     border-radius: 5px;
+     background-color: #f9f9f9;
+  }
+
+  .product-item-list{
+     box-shadow: 0px 2px 2px #ccc;
+     border-radius: 5px;
+     background-color: #f9f9f9;
+  }
+
+
+  .imagem-carro-tamanho-grid{
+    width: 290px;
+    height: 200px;
+  }
+
+  .imagem-carro-grid{
+    max-width: 500px;
+    max-height: auto;
+  }
+
+  .imagem-carro-tamanho-list{
+    margin: 10px;
+    border-radius: 5px;
+    width: 630px;
+    height: 370px;
+  }
+
+  .imagem-carro-list{
+    max-width: 500px;
+    max-height: auto;
+  }
+
+  .cor-carr-grid{
+    margin-left: 10px;
+  }
+
+
   .paginator {
         z-index: 1;
       }
+
+@media (min-device-width: 1599px) {
+  .imagem-carro-tamanho-grid{
+    width: 300px;
+    height: 210px;
+  }
+}
+
+@media (max-device-width: 1599px) {
+  .container-list{
+    width: 870px;
+  }
+}
+
+
+@media (max-device-width: 1199px) {
+  .container-list{
+    width: 620px;
+  }
+
+  .lista{
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+}
+
+@media (max-device-width: 991px) {
+
+  .container-grid{
+    width: 290px;
+  }
+
+  .container-list{
+    width: 750px;
+  }
+
+  .lista{
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+  .imagem-carro-list{
+    max-width: 370px;
+  }
+
+  .imagem-carro-tamanho-list{
+    width: 700px;
+    height: 250px;
+  }
+
+}
+
+@media (max-device-width: 845px) {
+  .container-list{
+    margin-left: -30px;
+    width: 720px;
+  }
+}
+
+@media (max-device-width: 767px) {
+
+  .container-list{
+    margin-left: -50px;
+    width: 580px;
+  }
+
+  .imagem-carro-list{
+    max-width: 580px;
+  }
+
+  .imagem-carro-tamanho-list{
+    width: 560px;
+    height: 400px;
+  }
+
+  .lista{
+    font-size: 16px;
+  }
+
+  .titulo-lista{
+    margin-left: 20px;
+  }
+
+}
+
+
+@media (max-device-width: 640px) {
+
+  .container-list{
+    margin-left: 25px;
+    width: 500px;
+  }
+
+  .imagem-carro-list{
+    max-width: 490px;
+  }
+
+  .imagem-carro-tamanho-list{
+    width: 480px;
+    height: 350px;
+  }
+}
+
+@media (max-device-width: 550px) {
+
+  .container-list{
+    margin-left: 25px;
+    width: 400px;
+  }
+
+  .imagem-carro-list{
+    max-width: 390px;
+  }
+
+  .imagem-carro-tamanho-list{
+    width: 380px;
+    height: 280px;
+  }
+}
+
+@media (max-device-width: 538px) {
+  .container-grid{
+    width: 290px;
+  }
+}
+
+@media (max-device-width: 450px) {
+
+  .container-list{
+    margin-left: 10px;
+    width: 300px;
+  }
+
+  .imagem-carro-list{
+    max-width: 290px;
+  }
+
+  .imagem-carro-tamanho-list{
+    width: 280px;
+    height: 200px;
+  }  
+}
+
+@media (max-device-width: 444px) {
+  .row-grid-final{
+    padding-left: 10%;
+  }
+
+  .header-logo-jmcars {
+        width: 200px;
+  }
+}
+@media (max-device-width: 344px) {
+  .row-grid-final{
+    padding-left: 5px;
+  }
+
+}
 
 </style>
 
@@ -189,7 +405,7 @@
                       type="checkbox"
                       id="size-selection-2"
                       checked
-                    />
+                    />product-list-item
                     <label class="label-checkbox mb-0" for="size-selection-2"
                       >L<span>(09)</span></label
                     >
@@ -287,29 +503,33 @@
                 <!-- Itens Grid -->
                 {% for car in cars %}
                 <div
-                  class="col-xl-4 col-sm-6 pt-6"
+                  class="col-xl-4 col-sm-6 pt-6 container-grid"
                   data-aos="fade-up"
                   data-aos-duration="1000"
                 >
                   <div class="product-item">
-                    <div class="product-img img-zoom-effect">
+                    <div class="product-img img-zoom-effect imagem-carro-grid">
                       <a href="{% url 'carro_detalhes' car.id %}">
                         <img
-                          class="img-full"
-                          src="{{ car.imagem_um.url }}"
+                          class="imagem-carro-tamanho-grid"
+                          src="{{ car.imagem_capa.url }}"
                           alt="Product Images"
                         />
                       </a>
                     </div>
-                    <div class="product-content">
-                      <a class="product-name pb-1" href="{% url 'carro_detalhes' car.id %}">{{ car.modelo }}</a>
+                    <div class="informacao-carro">
                       <div class="">
+                        <div class="title-product">
+                          <a href="{% url 'carro_detalhes' car.id %}">{{ car.modelo }}</a>
+                        </div>
                         <div class="price-box-holder">
                           <span>R$ </span>
                           <span class="new-price text-primary"
                             >{{ car.preco }}</span
                           >
                         </div>
+                        <span>{{ car.ano }}</span>
+                        <span class="cor-carr-grid">{{ car.cor }}</span>
                       </div>
                     </div>
                   </div>
@@ -328,22 +548,22 @@
                 <!-- Itens List -->
                 {% for car in cars %}
 
-                <div class="col-12 pt-8">
-                  <div class="product-list-item">
+                <div class="col-12 pt-8 container-list ">
+                  <div class="product-item">
                     <div
-                      class="product-list-img img-zoom-effect imagem_grande_produto"
+                      class=" img-zoom-effect imagem-carro-tamanho-list "
                     >
                       <a href="{% url 'carro_detalhes' car.id %}">
                         <img
-                          class="img-full"
-                          src="{{ car.imagem_um.url }}"
+                          class="imagem-carro-list"
+                          src="{{ car.imagem_capa.url }}"
                           alt="Product Images"
                         />
                       </a>
                     </div>
-                    <div class="product-list-content">
+                    <div class="product-list-content titulo-lista">
                       <a
-                        class="titulo-lista"
+                        class=""
                         href="{% url 'carro_detalhes' car.id %}"
                       >
                         {{ car.modelo }}</a
@@ -354,7 +574,6 @@
                           >{{ car.preco }}</span
                         >
                       </div>
-                      <p class="short-desc mb-0 pt-3">
                         <div class="container-lista">
                           <ul class="lista">
                             <li><b class="itens-lista">Marca:</b> {{car.marca}}</li>
