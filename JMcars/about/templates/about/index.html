@@ -1,15 +1,37 @@
 {% extends 'base.html' %} {% load static %} {% block titulo_da_guia %}
-<title>JMcars - Sobre nós</title>
+<title>JMcars - Sobre Nós</title>
 {% endblock %} {% block conteudo %} {% for about in valores %}
+
+<style>
+  .swiper-funcionarios {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container-funcionarios {
+    min-height: 100vh;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .funcionario-imagem {
+    width: 300px;
+    height: 400px;
+  }
+</style>
 
 <!-- Begin Main Content Area -->
 <main class="main-content">
   <div
     class="breadcrumb-area breadcrumb-height"
-    data-bg-image="{{ about.imagem_about.url }}"
+    data-bg-image="{{ about.imagem_about.url}}"
   >
-    <div class="container h-100" data-aos="zoom-in" data-aos-duration="1500">
-      <div class="row h-100">
+    <div class="container h-100">
+      <div class="row h-100" data-aos="zoom-in" data-aos-duration="1500">
         <div class="col-lg-12">
           <div class="breadcrumb-item text-night-rider">
             <h2 class="breadcrumb-heading">{{ about.titulo_about }}</h2>
@@ -17,7 +39,7 @@
               <li>
                 <a href="{% url 'home' %}">Home /</a>
               </li>
-              <li>About Us</li>
+              <li>Sobre Nós</li>
             </ul>
           </div>
         </div>
@@ -38,7 +60,7 @@
                 >{{ about.subtitulo_texto_about }}</span
               >
               <h2 class="about-title mb-5">{{ about.titulo_texto_about }}</h2>
-              <p class="short-desc mb-0">{{ about.texto_about }}</p>
+              <p class="short-desc mb-0">{{ about.texto_about}}</p>
             </div>
           </div>
           <div class="about-banner-img row">
@@ -95,144 +117,59 @@
         data-aos-duration="1000"
       >
         <span class="about-sub-title text-primary"
-          >{{ about.titulo_fotos_about }}</span
+          >{{ about.subtitulo_fotos_about }}</span
         >
         <h2 class="about-title mb-0">{{ about.titulo_fotos_about }}</h2>
       </div>
-      <div class="row" data-aos="fade-up" data-aos-duration="1000">
-        <div class="col-lg-12">
-          <div class="swiper-container team-member-slider">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="team-member-item img-gradient-effect">
-                  <div class="team-member-img">
+      <div class="container-funcionarios">
+        {% for funcionario in funcionarios %}
+        <div class="funcionário" data-aos="fade-up" data-aos-duration="1000">
+          <div class="team-member-item img-gradient-effect">
+            <div class="team-member-img">
+              <a href="#">
+                <img
+                  class="img-full funcionario-imagem"
+                  src="{{ funcionario.foto.url }}"
+                  alt="Team Member"
+                />
+              </a>
+            </div>
+            <div class="team-member-content">
+              <h2 class="title mb-0">{{ funcionario.nome }}</h2>
+              <span class="occupation">{{ funcionario.cargo }}</span>
+
+              {% if funcionario.link_instagram or funcionario.link_whatsapp %}
+              <div class="social-link with-border pt-2">
+                <ul>
+                  {% if funcionario.link_instagram %}
+                  <li>
                     <a href="#">
-                      <img
-                        class="img-full"
-                        src="{% static 'tromic/assets/images/about/team/1-1-400x442.jpg' %}"
-                        alt="Team Member"
-                      />
+                      <i class="fa fa-instagram"></i>
                     </a>
-                  </div>
-                  <div class="team-member-content">
-                    <h2 class="title mb-0">Jaren Hammer</h2>
-                    <span class="occupation">Salesman & Engineer</span>
-                    <div class="social-link with-border pt-2">
-                      <ul>
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-pinterest-p"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-twitter"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-tumblr"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-dribbble"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="team-member-item img-gradient-effect">
-                  <div class="team-member-img">
+                  </li>
+                  {% endif %} {% if funcionario.link_whatsapp %}
+                  <li>
                     <a href="#">
-                      <img
-                        class="img-full"
-                        src="{% static 'tromic/assets/images/about/team/1-2-400x442.jpg' %}"
-                        alt="Team Member"
-                      />
+                      <i class="fa fa-whatsapp"></i>
                     </a>
-                  </div>
-                  <div class="team-member-content">
-                    <h2 class="title mb-0">Jaren Hammer</h2>
-                    <span class="occupation">Salesman & Engineer</span>
-                    <div class="social-link with-border pt-2">
-                      <ul>
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-pinterest-p"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-twitter"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-tumblr"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-dribbble"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="team-member-item img-gradient-effect">
-                  <div class="team-member-img">
+                  </li>
+                  {% endif %} {% if funcionario.link_facebook %}
+                  <li>
                     <a href="#">
-                      <img
-                        class="img-full"
-                        src="{% static 'tromic/assets/images/about/team/1-3-400x442.jpg' %}"
-                        alt="Team Member"
-                      />
+                      <i class="fa fa-facebook"></i>
                     </a>
-                  </div>
-                  <div class="team-member-content">
-                    <h2 class="title mb-0">Jaren Hammer</h2>
-                    <span class="occupation">Salesman & Engineer</span>
-                    <div class="social-link with-border pt-2">
-                      <ul>
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-pinterest-p"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-twitter"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-tumblr"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-dribbble"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+                  </li>
+                  {% endif %}
+                </ul>
               </div>
+              {% endif %}
             </div>
           </div>
         </div>
+        {% endfor %}
       </div>
     </div>
   </div>
-</main>
-<!-- Main Content Area End Here -->
 
-{% endfor %} {% endblock %}
+  {% endfor %} {% endblock %}
+</main>
