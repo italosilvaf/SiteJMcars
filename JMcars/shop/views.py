@@ -1,24 +1,25 @@
 from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView
-from django.core.paginator import Paginator
-from django.shortcuts import render
 from .models import Shop
 from .models import Car
+from categories.models import Categoria
 
 
-class Index(ListView):
-    def index(request):
-        valor = Shop.objects.filter(publicado_shop=True).order_by('-id')[:1]
-        car = Car.objects.filter(publicado=True).order_by('-id')
+class CarView(ListView):
+    model = Car
+    template_name = 'shop/index.html'
+    paginate_by = 12
+    context_object_name = 'cars'
 
-        contact_list = car
-        paginator = Paginator(contact_list, 12)
-        page_number = request.GET.get('page')
-        page_obj = paginator.get_page(page_number)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['valores'] = Shop.objects.filter(
+            publicado_shop=True).order_by('-id')[:1]
+        context['categorias'] = Categoria.objects.all()
+        return context
 
-        return render(request, 'shop/index.html', {
-            'valores': valor, 'cars': page_obj, 'page_obj': page_obj,
-        })
+    def get_queryset(self):
+        return super().get_queryset()
 
 
 class CarroDetalhes(UpdateView):
@@ -26,3 +27,19 @@ class CarroDetalhes(UpdateView):
     model = Car
     context_object_name = 'car'
     fields = "__all__"
+
+
+class CarroCategoria(ListView):
+    template_name = 'shop/carro_categoria.html'
+    model = Categoria
+    context_object_name = 'categorias'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['valores'] = Shop.objects.filter(
+            publicado_shop=True).order_by('-id')[:1]
+
+        categoria = self.kwargs.get('nome_categoria', None)
+        context['cars'] = Car.objects.filter(publicado=True,
+                                             categoria_carro__nome_categoria__iexact=categoria)
+        return context

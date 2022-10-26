@@ -143,19 +143,19 @@
                 <ul>
                   {% if funcionario.link_instagram %}
                   <li>
-                    <a href="#">
+                    <a href="{{ funcionario.link_instagram }}" target="_blank">
                       <i class="fa fa-instagram"></i>
                     </a>
                   </li>
                   {% endif %} {% if funcionario.link_whatsapp %}
                   <li>
-                    <a href="#">
+                    <a href="{{ funcionario.link_whatsapp }}" target="_blank">
                       <i class="fa fa-whatsapp"></i>
                     </a>
                   </li>
                   {% endif %} {% if funcionario.link_facebook %}
                   <li>
-                    <a href="#">
+                    <a href="{{ funcionario.link_facebook }}" target="_blank">
                       <i class="fa fa-facebook"></i>
                     </a>
                   </li>

@@ -365,20 +365,17 @@
               </div>
               <div class="col-lg-2 col-md-4 col-sm-4 pt-8 pt-lg-0">
                 <div class="widget-item">
-                  <h3 class="widget-title mb-5">Carros</h3>
+                  <h3 class="widget-title mb-5">Categorias</h3>
                   <ul class="widget-list-item">
+                    {% for categoria in categorias %}
                     <li>
                       <i class="fa fa-chevron-right"></i>
-                      <a href="#">Novos</a>
+                      <a
+                        href="{% url 'carro_categorias' categoria.nome_categoria %}"
+                        >{{ categoria.nome_categoria }}
+                      </a>
                     </li>
-                    <li>
-                      <i class="fa fa-chevron-right"></i>
-                      <a href="#">Seminovos</a>
-                    </li>
-                    <li>
-                      <i class="fa fa-chevron-right"></i>
-                      <a href="#">Usados</a>
-                    </li>
+                    {% endfor %}
                   </ul>
                 </div>
               </div>

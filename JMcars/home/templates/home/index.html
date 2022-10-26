@@ -44,8 +44,9 @@
   <div class="banner-area section-space-top-100">
     <div class="container">
       <div class="row">
+        {% for categoria in categorias %}
         <div
-          class="col-lg-4 col-md-6"
+          class="col-lg-4 col-md-6 mt-3 mb-3"
           data-aos="flip-left"
           data-aos-duration="1000"
         >
@@ -53,13 +54,15 @@
             <div class="banner-img img-zoom-effect">
               <img
                 class="img-full"
-                src="{{ home.imagem_quadrado_um.url }}"
+                src="{{ categoria.imagem_categoria.url }}"
                 alt="Banner Image"
               />
               <div class="inner-content text-white">
-                <h2 class="title mb-5">{{ home.titulo_quadrado_um }}</h2>
+                <h2 class="title mb-5">{{ categoria.nome_categoria }}</h2>
                 <div class="button-wrap">
-                  <a class="btn btn-custom-size btn-primary" href="shop.html"
+                  <a
+                    class="btn btn-custom-size btn-primary"
+                    href="{% url 'carro_categorias' categoria.nome_categoria %}"
                     >VER MODELOS</a
                   >
                 </div>
@@ -67,52 +70,7 @@
             </div>
           </div>
         </div>
-        <div
-          class="col-lg-4 col-md-6 pt-6 pt-md-0"
-          data-aos="flip-left"
-          data-aos-duration="1000"
-        >
-          <div class="banner-item img-hover-effect">
-            <div class="banner-img img-zoom-effect">
-              <img
-                class="img-full"
-                src="{{ home.imagem_quadrado_dois.url }}"
-                alt="Banner Image"
-              />
-              <div class="inner-content text-white">
-                <h2 class="title mb-5">{{ home.titulo_quadrado_dois }}</h2>
-                <div class="button-wrap">
-                  <a class="btn btn-custom-size btn-primary" href="shop.html"
-                    >VER MODELOS</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-lg-4 col-md-6 pt-6 pt-lg-0"
-          data-aos="flip-left"
-          data-aos-duration="1000"
-        >
-          <div class="banner-item img-hover-effect">
-            <div class="banner-img img-zoom-effect">
-              <img
-                class="img-full"
-                src="{{ home.imagem_quadrado_tres.url }}"
-                alt="Banner Image"
-              />
-              <div class="inner-content text-white">
-                <h2 class="title mb-5">{{ home.titulo_quadrado_tres }}</h2>
-                <div class="button-wrap">
-                  <a class="btn btn-custom-size btn-primary" href="shop.html"
-                    >VER MODELOS</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>

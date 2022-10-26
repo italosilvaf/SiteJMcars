@@ -1,4 +1,5 @@
 from django.db import models
+from categories.models import Categoria
 
 
 class Shop(models.Model):
@@ -32,6 +33,8 @@ class Car(models.Model):
         max_length=50, verbose_name='Câmbio', default=None)
     preco = models.CharField(
         max_length=50, verbose_name='Preço', default=None)
+    categoria_carro = models.ForeignKey(
+        Categoria, on_delete=models.DO_NOTHING, blank=True, null=True, verbose_name='Categoria')
     publicado = models.BooleanField(
         verbose_name='Publicado', default=False)
     imagem_1 = models.ImageField(
