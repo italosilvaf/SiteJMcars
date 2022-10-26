@@ -136,6 +136,14 @@
     line-height: 20px;
   }
 
+  .imagem-carro-list{
+    max-width: 450px;
+  }
+
+  .imagem-carro-tamanho-list{
+    height: 330px;
+  }
+
 }
 
 @media (max-device-width: 991px) {
@@ -512,7 +520,7 @@
                       <a href="{% url 'carro_detalhes' car.id %}">
                         <img
                           class="imagem-carro-tamanho-grid"
-                          src="{{ car.imagem_capa.url }}"
+                          src="{{ car.imagem_1.url }}"
                           alt="Product Images"
                         />
                       </a>
@@ -556,7 +564,7 @@
                       <a href="{% url 'carro_detalhes' car.id %}">
                         <img
                           class="imagem-carro-list"
-                          src="{{ car.imagem_capa.url }}"
+                          src="{{ car.imagem_1.url }}"
                           alt="Product Images"
                         />
                       </a>

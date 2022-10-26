@@ -34,8 +34,46 @@ class Car(models.Model):
         max_length=50, verbose_name='Preço', default=None)
     publicado = models.BooleanField(
         verbose_name='Publicado', default=False)
-    imagem_capa = models.ImageField(
+    imagem_1 = models.ImageField(
         upload_to='imagens_shop/imagens_carros', blank=False, null=False, default=None, verbose_name='Imagem 1 (Capa)')
+    imagem_2 = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 2')
+    imagem_3 = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 3')
+    imagem_4 = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 4')
+    imagem_5 = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 5')
+    imagem_6 = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 6')
+    imagem_7 = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 7')
+    imagem_8 = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 8')
+    imagem_9 = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 9')
+    imagem_10 = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 10')
+    imagem_11 = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 11')
+    imagem_12 = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 12')
+    imagem_13 = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 13')
+    imagem_14 = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 14')
+    imagem_15 = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 15')
+    imagem_16 = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 16')
+    imagem_17 = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 17')
+    imagem_18 = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 18')
+    imagem_19 = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 19')
+    imagem_20 = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 20')
 
     def __str__(self):
         return self.modelo
