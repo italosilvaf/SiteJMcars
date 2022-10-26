@@ -8,7 +8,7 @@ class Shop(models.Model):
     titulo_shop = models.CharField(
         max_length=50, verbose_name='Título',  blank=False, null=False, default=None)
     imagem_shop = models.ImageField(
-        upload_to='imagens_shop/imagens_background', blank=True, null=True, verbose_name='Background')
+        upload_to='imagens_shop/imagens_background', blank=True, null=True, verbose_name='Background (1920x400)')
     publicado_shop = models.BooleanField(
         verbose_name='Publicado', default=False)
 

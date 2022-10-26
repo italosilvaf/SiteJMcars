@@ -14,19 +14,19 @@ class Home(models.Model):
     publicado_home = models.BooleanField(
         verbose_name='Publicado', default=False)
     imagem_home = models.ImageField(
-        upload_to='imagens_home/background/header', blank=False, null=False, verbose_name='Background', default=None)
+        upload_to='imagens_home/background/header', blank=False, null=False, verbose_name='Background (1920x803)', default=None)
     titulo_quadrado_um = models.CharField(
         max_length=50, verbose_name='Título do quadrado 1', blank=True, null=True, default=' ')
     imagem_quadrado_um = models.ImageField(
-        upload_to='imagens_home/quadrado1', blank=True, null=True, verbose_name='Imagem do quadrado 1')
+        upload_to='imagens_home/quadrado1', blank=True, null=True, verbose_name='Imagem do quadrado 1 (400x250)')
     titulo_quadrado_dois = models.CharField(
         max_length=50, verbose_name='Título do quadrado 2', blank=True, null=True, default=' ')
     imagem_quadrado_dois = models.ImageField(
-        upload_to='imagens_home/quadrado2', blank=True, null=True, verbose_name='Imagem do quadrado 2')
+        upload_to='imagens_home/quadrado2', blank=True, null=True, verbose_name='Imagem do quadrado 2 (400x250)')
     titulo_quadrado_tres = models.CharField(
         max_length=50, verbose_name='Título do quadrado 3', blank=True, null=True, default=' ')
     imagem_quadrado_tres = models.ImageField(
-        upload_to='imagens_home/quadrado3', blank=True, null=True, verbose_name='Imagem do quadrado 3')
+        upload_to='imagens_home/quadrado3', blank=True, null=True, verbose_name='Imagem do quadrado 3 (400x250)')
     titulo_quadrado_grande_um = models.CharField(
         max_length=50, verbose_name='Título 1 do quadrado grande ', blank=True, null=True, default=' ')
     descricao_quadrado_grande_um = models.TextField(
@@ -40,7 +40,7 @@ class Home(models.Model):
     descricao_quadrado_grande_tres = models.TextField(
         max_length=250, verbose_name='Descrição 3 do quadrado grande ', blank=True, null=True, default=None)
     imagem_final_home = models.ImageField(
-        upload_to='imagens_home/background/footer', blank=True, null=True, verbose_name='Imagem do final da página')
+        upload_to='imagens_home/background/footer', blank=True, null=True, verbose_name='Imagem do final da página (1920x803)')
     titulo_final_home = models.CharField(
         max_length=50, verbose_name='Título do final da página', blank=True, null=True, default=' ')
     subtitulo_final_home = models.CharField(
