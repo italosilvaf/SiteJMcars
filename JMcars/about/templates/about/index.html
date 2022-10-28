@@ -16,6 +16,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin-top: -100px;
   }
 
   .funcionario-imagem {
@@ -112,21 +113,23 @@
   <div class="team-member section-space-y-axis-100">
     <div class="container">
       <div
-        class="section-title text-center pb-55"
+        class="section-title text-center"
         data-aos="fade-right"
         data-aos-duration="1000"
       >
         <span class="about-sub-title text-primary"
           >{{ about.subtitulo_fotos_about }}</span
         >
-        <h2 class="about-title mb-0">{{ about.titulo_fotos_about }}</h2>
+        <h2 class="about-title titulo-funcionarios">
+          {{ about.titulo_fotos_about }}
+        </h2>
       </div>
       <div class="container-funcionarios">
         {% for funcionario in funcionarios %}
         <div class="funcionário" data-aos="fade-up" data-aos-duration="1000">
           <div class="team-member-item img-gradient-effect">
             <div class="team-member-img">
-              <a href="#">
+              <a>
                 <img
                   class="img-full funcionario-imagem"
                   src="{{ funcionario.foto.url }}"

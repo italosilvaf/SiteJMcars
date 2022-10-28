@@ -65,12 +65,12 @@ class CarroBusca(CarView):
 
         qs = qs.filter(
             Q(modelo__icontains=termo) |
-            Q(marca__icontains=termo) |
+            Q(marca__nome_marca__icontains=termo) |
             Q(ano__icontains=termo) |
-            Q(cor__icontains=termo) |
+            Q(cor__nome_cor__icontains=termo) |
             Q(quilometragem__icontains=termo) |
             Q(motorizacao__icontains=termo) |
-            Q(motorizacao__icontains=termo) |
+            Q(cambio__nome_cambio__icontains=termo) |
             Q(categoria_carro__nome_categoria__icontains=termo)
         )
 

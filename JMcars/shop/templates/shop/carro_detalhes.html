@@ -388,25 +388,7 @@
                 {% endif %}
               </div>
             </div>
-            {% if car.imagem_2 != None %} {% if car.imagem_3 != None %}
-            <!---->
-            {% if car.imagem_4 != None %} {% if car.imagem_5 != None %}
-            <!---->
-            {% if car.imagem_6 != None %} {% if car.imagem_7 != None %}
-            <!---->
-            {% if car.imagem_8 != None %} {% if car.imagem_9 != None %}
-            <!---->
-            {% if car.imagem_10 != None %} {% if car.imagem_11 != None %}
-            <!---->
-            {% if car.imagem_12 != None %} {% if car.imagem_13 != None %}
-            <!---->
-            {% if car.imagem_14 != None %} {% if car.imagem_15 != None %}
-            <!---->
-            {% if car.imagem_16 != None %} {% if car.imagem_17 != None %}
-            <!---->
-            {% if car.imagem_18 != None %} {% if car.imagem_19 != None %}
-            <!---->
-            {% if car.imagem_20 != None %}
+            {% if car.imagem_2 %}
             <div class="thumbs-arrow-holder">
               <div class="swiper-container single-product-thumbs">
                 <div class="swiper-wrapper">
@@ -639,13 +621,7 @@
                 </div>
               </div>
             </div>
-            {% endif %} {% endif %} {% endif %} {% endif %} {% endif %}
-            <!---->
-            {% endif %} {% endif %} {% endif %} {% endif %} {% endif %}
-            <!---->
-            {% endif %} {% endif %} {% endif %} {% endif %} {% endif %}
-            <!---->
-            {% endif %} {% endif %} {% endif %} {% endif %}
+            {% endif %}
           </div>
         </div>
         <div class="col-lg-6 pt-9 pt-lg-0">
@@ -662,7 +638,7 @@
                 <li><b class="itens-lista">Cor:</b> {{car.cor}}</li>
                 <li>
                   <b class="itens-lista">Quilometragem:</b>
-                  {{car.quilometragem}}
+                  {{car.quilometragem}} Km
                 </li>
                 <li>
                   <b class="itens-lista">Motorização:</b> {{car.motorizacao}}

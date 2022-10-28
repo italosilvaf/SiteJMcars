@@ -7,7 +7,7 @@ class Home(models.Model):
         max_length=50, verbose_name='Página',  blank=False, null=False, default='Home')
     titulo_home = models.CharField(
         max_length=50, verbose_name='Título',  blank=False, null=False, default=None)
-    subtitulo_home = models.TextField(
+    subtitulo_home = models.CharField(
         max_length=50, verbose_name='Subtítulo',  blank=True, null=True, default=None)
     descricao_home = models.TextField(
         max_length=250, verbose_name='Descrição', blank=True, null=True, default=None)

@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% load static %} {% block titulo_da_guia %}
-<title>JMcars - Estoque</title>
+<title>JMcars - Categoria</title>
 {% endblock %} {% block conteudo %} {% for shop in valores %}
 
 <style>
@@ -496,7 +496,7 @@
                           <li><b class="itens-lista">Marca:</b> {{car.marca}}</li>
                           <li><b class="itens-lista">Ano:</b> {{car.ano}}</li>
                           <li><b class="itens-lista">Cor:</b> {{car.cor}}</li>
-                          <li><b class="itens-lista">Quilometragem:</b> {{car.quilometragem}}</li>
+                          <li><b class="itens-lista">Quilometragem:</b> {{car.quilometragem}} Km</li>
                           <li><b class="itens-lista">Motorização:</b> {{car.motorizacao}}</li>
                           <li><b class="itens-lista">Câmbio:</b> {{car.cambio}}</li>
                           <li><b class="itens-lista">Categoria:</b> {{car.categoria_carro}}</li>
