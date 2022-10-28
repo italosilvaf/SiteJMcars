@@ -31,6 +31,11 @@ class CarroDetalhes(UpdateView):
     context_object_name = 'car'
     fields = "__all__"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categorias'] = Categoria.objects.all()
+        return context
+
 
 class CarroCategoria(CarView):
     template_name = 'shop/carro_categoria.html'
