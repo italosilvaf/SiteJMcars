@@ -1,6 +1,6 @@
-from multiprocessing import context
 from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView
+from django.db.models import Q
 from .models import Shop
 from .models import Car
 from categories.models import Categoria
@@ -32,17 +32,46 @@ class CarroDetalhes(UpdateView):
     fields = "__all__"
 
 
-class CarroCategoria(ListView):
+class CarroCategoria(CarView):
     template_name = 'shop/carro_categoria.html'
-    model = Categoria
-    context_object_name = 'categorias'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['valores'] = Shop.objects.filter(
             publicado_shop=True).order_by('-id')[:1]
-
-        categoria = self.kwargs.get('nome_categoria', None)
-        context['cars'] = Car.objects.filter(publicado=True,
-                                             categoria_carro__nome_categoria__iexact=categoria).order_by('-id')
+        context['categorias'] = Categoria.objects.all()
         return context
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        categoria = self.kwargs.get('nome_categoria', None)
+
+        if not categoria:
+            return qs
+
+        qs = qs.filter(
+            categoria_carro__nome_categoria__iexact=categoria).order_by('-id')
+        return qs
+
+
+class CarroBusca(CarView):
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        termo = self.request.GET.get('termo')
+
+        if not termo or termo is None:
+            return qs
+
+        qs = qs.filter(
+            Q(modelo__icontains=termo) |
+            Q(marca__icontains=termo) |
+            Q(ano__icontains=termo) |
+            Q(cor__icontains=termo) |
+            Q(quilometragem__icontains=termo) |
+            Q(motorizacao__icontains=termo) |
+            Q(motorizacao__icontains=termo) |
+            Q(categoria_carro__nome_categoria__icontains=termo)
+        )
+
+        return qs
