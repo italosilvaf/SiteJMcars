@@ -1,4 +1,5 @@
 from categories.models import Categoria
+from shop.models import Car
 from .models import Home
 from django.views.generic.list import ListView
 
@@ -15,4 +16,6 @@ class Index(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categorias'] = Categoria.objects.all()
+        context['cars'] = Car.objects.filter(
+            publicado=True).order_by('-id')[:5]
         return context

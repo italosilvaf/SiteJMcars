@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView
 from .models import Shop
@@ -19,7 +20,9 @@ class CarView(ListView):
         return context
 
     def get_queryset(self):
-        return super().get_queryset()
+        qs = super().get_queryset()
+        qs = qs.filter(publicado=True).order_by('-id')
+        return qs
 
 
 class CarroDetalhes(UpdateView):
@@ -41,5 +44,5 @@ class CarroCategoria(ListView):
 
         categoria = self.kwargs.get('nome_categoria', None)
         context['cars'] = Car.objects.filter(publicado=True,
-                                             categoria_carro__nome_categoria__iexact=categoria)
+                                             categoria_carro__nome_categoria__iexact=categoria).order_by('-id')
         return context

@@ -3,39 +3,104 @@
 {% endblock %} {% block conteudo %} {% for shop in valores %}
 
 <style>
+  /* Geral */
+  .paginator {
+    z-index: 1;
+    }
+
   .centro {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .imagem_grande_produto {
-    margin-right: 20px;
+  .sombra-itens-grid-list{
+     box-shadow: 0px 2px 2px #ccc;
+     border-radius: 5px;
+     background-color: #f9f9f9;
   }
 
-  .titulo-lista{
-    font-size: 30px;
-    font-weight: 500;
-    margin-top: 20px;
-  }
+  /* End Geral */
 
-  .row-grid-final{
+
+  /* Grid */
+  .container-itens-grid{
+    gap: 15px;
     align-items: center;
     justify-content: center;
   }
 
-  .item-grid{
-    width: 33.333333%;
+  .container-grid{
+    width: 280px;
+    height: 400px;
   }
 
-  .container-lista{
+  .tamanho-bloco-imagem-grid{
+    width: 280px;
+    height: 180px;
+    border-radius: 5px;
+    margin-left: -15px;
+    margin-bottom: 10px;
+  }
+
+  .tamanho-imagem-grid{
+    max-width: 280px;
+  }
+
+  .titulo-grid{
+    color: #535353;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .cor-car-grid{
+    margin-left: 10px;
+  }
+  /* End grid */
+
+  /* List */
+  .container-itens-list{
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container-list{
+    display: flex;
+    gap: 10px;
+    width: 850px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .tamanho-bloco-imagem-list{
+    margin: 5px;
+    border-radius: 5px;
+    width: 470px;
+    height: 300px;
+  }
+
+  .tamanho-imagem-list{
+    max-width: 465px;
+  }
+
+  .titulo-list{
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 20px;
+    width: 350px;
+  }
+
+  /* Lista Informações */
+  .container-informacoes-lista{
+    margin: 10px;
     flex: 1 0 400px;
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
   }
 
-  .lista{
+  .lista-informacoes{
     font-size: 16px;
     line-height: 35px;
     display: flex;
@@ -53,231 +118,78 @@
     list-style-type: circle;
   }
 
-  .informacao-carro{
-    font-family: var(--bs-body-font-family);
-    margin-left: 10px;
-    display: grid;
-    height: 200px;
+  /* End Lista Informações */
+
+  /* EndList */
+  /* and (min-device-width: 360px) */
+
+  @media (max-device-width: 1199px) {
+    .container-list{
+      width: 500px;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tamanho-bloco-imagem-list{
+      width: 480px;
+      height: 355px;
+    }
+
+    .tamanho-imagem-list{
+      max-width: 490px;
+    }
+
+    .container-informacoes-lista{
+      width: 460px;
+    }
+
+    .topo-infomracoes-list{
+      width: 450px;
+      margin-left: 10px;
+    }
+    
+    .titulo-list{
+      margin-top: 0px;
+      width: 450px;
+    }
+
   }
 
-  .title-product{
-    color: #535353;
-    font-weight: 500;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  @media (max-device-width: 520px) {
+    .container-list{
+      width: 280px;
+    }
+
+    .tamanho-bloco-imagem-list{
+      width: 280px;
+      height: 180px;
+      margin-top: -3px;
+    }
+
+    .tamanho-imagem-list{
+      max-width: 285px;
+    }
+
+    .container-informacoes-lista{
+      width: 270px;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .topo-infomracoes-list{
+      width: 265px;
+      margin-left: 15px;
+    }
+
+    .titulo-list{
+      margin-top: 0px;
+      width: 265px;
+      font-size: 25px;
+    }
+
   }
-
-  .product-item{
-     box-shadow: 0px 2px 2px #ccc;
-     border-radius: 5px;
-     background-color: #f9f9f9;
-  }
-
-  .product-item-list{
-     box-shadow: 0px 2px 2px #ccc;
-     border-radius: 5px;
-     background-color: #f9f9f9;
-  }
-
-
-  .imagem-carro-tamanho-grid{
-    width: 290px;
-    height: 200px;
-  }
-
-  .imagem-carro-grid{
-    max-width: 500px;
-    max-height: auto;
-  }
-
-  .imagem-carro-tamanho-list{
-    margin: 10px;
-    border-radius: 5px;
-    width: 630px;
-    height: 370px;
-  }
-
-  .imagem-carro-list{
-    max-width: 500px;
-    max-height: auto;
-  }
-
-  .cor-carr-grid{
-    margin-left: 10px;
-  }
-
-
-  .paginator {
-        z-index: 1;
-      }
-
-@media (min-device-width: 1599px) {
-  .imagem-carro-tamanho-grid{
-    width: 300px;
-    height: 210px;
-  }
-}
-
-@media (max-device-width: 1599px) {
-  .container-list{
-    width: 870px;
-  }
-}
-
-
-@media (max-device-width: 1199px) {
-  .container-list{
-    width: 620px;
-  }
-
-  .lista{
-    font-size: 12px;
-    line-height: 20px;
-  }
-
-  .imagem-carro-list{
-    max-width: 450px;
-  }
-
-  .imagem-carro-tamanho-list{
-    height: 330px;
-  }
-
-}
-
-@media (max-device-width: 991px) {
-
-  .container-grid{
-    width: 290px;
-  }
-
-  .container-list{
-    width: 750px;
-  }
-
-  .lista{
-    font-size: 16px;
-    line-height: 30px;
-  }
-
-  .imagem-carro-list{
-    max-width: 370px;
-  }
-
-  .imagem-carro-tamanho-list{
-    width: 700px;
-    height: 250px;
-  }
-
-}
-
-@media (max-device-width: 845px) {
-  .container-list{
-    margin-left: -30px;
-    width: 720px;
-  }
-}
-
-@media (max-device-width: 767px) {
-
-  .container-list{
-    margin-left: -50px;
-    width: 580px;
-  }
-
-  .imagem-carro-list{
-    max-width: 580px;
-  }
-
-  .imagem-carro-tamanho-list{
-    width: 560px;
-    height: 400px;
-  }
-
-  .lista{
-    font-size: 16px;
-  }
-
-  .titulo-lista{
-    margin-left: 20px;
-  }
-
-}
-
-
-@media (max-device-width: 640px) {
-
-  .container-list{
-    margin-left: 25px;
-    width: 500px;
-  }
-
-  .imagem-carro-list{
-    max-width: 490px;
-  }
-
-  .imagem-carro-tamanho-list{
-    width: 480px;
-    height: 350px;
-  }
-}
-
-@media (max-device-width: 550px) {
-
-  .container-list{
-    margin-left: 25px;
-    width: 400px;
-  }
-
-  .imagem-carro-list{
-    max-width: 390px;
-  }
-
-  .imagem-carro-tamanho-list{
-    width: 380px;
-    height: 280px;
-  }
-}
-
-@media (max-device-width: 538px) {
-  .container-grid{
-    width: 290px;
-  }
-}
-
-@media (max-device-width: 450px) {
-
-  .container-list{
-    margin-left: 10px;
-    width: 300px;
-  }
-
-  .imagem-carro-list{
-    max-width: 290px;
-  }
-
-  .imagem-carro-tamanho-list{
-    width: 280px;
-    height: 200px;
-  }  
-}
-
-@media (max-device-width: 444px) {
-  .row-grid-final{
-    padding-left: 10%;
-  }
-
-  .header-logo-jmcars {
-        width: 200px;
-  }
-}
-@media (max-device-width: 344px) {
-  .row-grid-final{
-    padding-left: 5px;
-  }
-
-}
 
 </style>
 
@@ -316,8 +228,17 @@
                 </button>
               </form>
             </div>
+            <div
+            class="button-wrap"
+          >
+            <a
+              class="btn btn-custom-size lg-size btn-primary w-100 mb-5"
+              href="{% url 'shop' %}"
+              >Limpar pesquisa e filtros</a
+            >
+          </div>
             <div class="widgets-area mb-9">
-              <h2 class="widgets-title mb-5">Product Categories</h2>
+              <h2 class="widgets-title mb-5">Categorias</h2>
               <div class="widgets-item">
                 <ul class="widgets-category">
                   {% for categoria in categorias %}
@@ -490,44 +411,40 @@
             </ul>
           </div>
           <div class="tab-content text-charcoal pt-8">
+
+            <!-- Grid -->
             <div
               class="tab-pane fade show active"
               id="grid-view"
               role="tabpanel"
               aria-labelledby="grid-view-tab"
             >
-              <div class="product-grid-view row row-grid-final">
+              <div class="row container-itens-grid">
                 <!-- Itens Grid -->
                 {% for car in cars %}
-                <div
-                  class="col-xl-4 col-sm-6 pt-6 container-grid"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                >
-                  <div class="product-item">
-                    <div class="product-img img-zoom-effect imagem-carro-grid">
-                      <a href="{% url 'carro_detalhes' car.id %}">
-                        <img
-                          class="imagem-carro-tamanho-grid"
-                          src="{{ car.imagem_1.url }}"
-                          alt="Product Images"
-                        />
-                      </a>
-                    </div>
-                    <div class="informacao-carro">
-                      <div class="">
-                        <div class="title-product">
-                          <a href="{% url 'carro_detalhes' car.id %}">{{ car.modelo }}</a>
-                        </div>
-                        <div class="price-box-holder">
-                          <span>R$ </span>
-                          <span class="new-price text-primary"
-                            >{{ car.preco }}</span
-                          >
-                        </div>
-                        <span>{{ car.ano }}</span>
-                        <span class="cor-carr-grid">{{ car.cor }}</span>
+                <div class="sombra-itens-grid-list container-grid" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="img-zoom-effect tamanho-bloco-imagem-grid">
+                    <a href="{% url 'carro_detalhes' car.id %}">
+                      <img
+                        class="tamanho-imagem-grid"
+                        src="{{ car.imagem_1.url }}"
+                        alt="Product Images"
+                      />
+                    </a>
+                  </div>
+                  <div class="container-informações">
+                    <a
+                      class="product-name pb-1 titulo-grid"
+                      href="{% url 'carro_detalhes' car.id %}"
+                      >{{ car.modelo }}</a
+                    >
+                    <div class="informacoes">
+                      <div class="price-box-holder">
+                        <span>R$ </span>
+                        <span class="text-primary">{{ car.preco }}</span>
                       </div>
+                      <span>{{ car.ano }}</span>
+                      <span class="cor-car-grid">{{ car.cor }}</span>
                     </div>
                   </div>
                 </div>
@@ -535,71 +452,78 @@
                 <!-- End Item Grid -->
               </div>
             </div>
+            <!-- End Grid -->
+
+            <!-- List -->
             <div
               class="tab-pane fade"
               id="list-view"
               role="tabpanel"
               aria-labelledby="list-view-tab"
             >
-              <div class="product-list-view itens-grid">
+              <div class="container-itens-list">
                 <!-- Itens List -->
-                {% for car in cars %}
 
-                <div class="col-12 pt-8 container-list ">
-                  <div class="product-item">
+                {% for car in cars %}
+                <div class="container-list sombra-itens-grid-list" >
                     <div
-                      class=" img-zoom-effect imagem-carro-tamanho-list "
+                      class=" img-zoom-effect tamanho-bloco-imagem-list "
                     >
                       <a href="{% url 'carro_detalhes' car.id %}">
                         <img
-                          class="imagem-carro-list"
+                          class="tamanho-imagem-list"
                           src="{{ car.imagem_1.url }}"
                           alt="Product Images"
                         />
                       </a>
                     </div>
-                    <div class="product-list-content titulo-lista">
-                      <a
-                        class=""
-                        href="{% url 'carro_detalhes' car.id %}"
-                      >
-                        {{ car.modelo }}</a
-                      >
-                      <div class="price-box pb-1">
-                        <span>R$ </span>
-                        <span class="new-price text-primary"
-                          >{{ car.preco }}</span
-                        >
-                      </div>
-                        <div class="container-lista">
-                          <ul class="lista">
-                            <li><b class="itens-lista">Marca:</b> {{car.marca}}</li>
-                            <li><b class="itens-lista">Ano:</b> {{car.ano}}</li>
-                            <li><b class="itens-lista">Cor:</b> {{car.cor}}</li>
-                            <li><b class="itens-lista">Quilometragem:</b> {{car.quilometragem}}</li>
-                            <li><b class="itens-lista">Motorização:</b> {{car.motorizacao}}</li>
-                            <li><b class="itens-lista">Câmbio:</b> {{car.cambio}}</li>
-                          </ul>
-                          <ul class="lista">
-                            <li><b class="itens-lista">Opcionais: </b>
-                              <ul class="itens-lista-opcionais">
-                                <li>Ar-condicionado</li>
-                                <li>Direção Hidráulica</li>
-                                <li>Vidros elétricos</li>
-                                <li>Alarme</li>
-                              </ul>
-                            </li>
-                          </ul>
-  
+                    <div class="product-list-content inf conatiner-informacoes-lista">
+                      <div class="topo-infomracoes-list">
+                        <div class="titulo-list">
+                          <a href="{% url 'carro_detalhes' car.id %}">
+                          {{ car.modelo }}
+                          </a>
                         </div>
+                        <div class="price-box pb-1">
+                          <span>R$ </span>
+                          <span class="new-price text-primary"
+                            >{{ car.preco }}</span
+                          >
+                        </div>  
+                      </div>
+                      <div class="container-informacoes-lista">
+                        <ul class="lista-informacoes">
+                          <li><b class="itens-lista">Marca:</b> {{car.marca}}</li>
+                          <li><b class="itens-lista">Ano:</b> {{car.ano}}</li>
+                          <li><b class="itens-lista">Cor:</b> {{car.cor}}</li>
+                          <li><b class="itens-lista">Quilometragem:</b> {{car.quilometragem}}</li>
+                          <li><b class="itens-lista">Motorização:</b> {{car.motorizacao}}</li>
+                          <li><b class="itens-lista">Câmbio:</b> {{car.cambio}}</li>
+                        </ul>
+                        <ul class="lista-informacoes">
+                          <li><b class="itens-lista">Opcionais: </b>
+                            <ul class="itens-lista-opcionais">
+                              <li>Ar-condicionado</li>
+                              <li>Direção Hidráulica</li>
+                              <li>Vidros elétricos</li>
+                              <li>Alarme</li>
+                              <li>Ar-condicionado</li>
+                              <li>Direção Hidráulica</li>
+                              <li>Vidros elétricos</li>
+                              <li>Alarme</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
                       </p>
                     </div>
-                  </div>
                 </div>
                 {% endfor %}
                 <!-- End Item List -->
               </div>
             </div>
+            <!-- End List -->
+
           </div>
           <!-- Paginator -->
           <div class="pagination-area pt-10">
