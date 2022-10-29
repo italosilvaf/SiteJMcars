@@ -30,3 +30,7 @@ class Home(models.Model):
 
     def __str__(self):
         return self.nome_home
+
+    class Meta:
+        verbose_name = 'Presonalização da página Home'
+        verbose_name_plural = 'Presonalização da página Home'

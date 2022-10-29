@@ -1,3 +1,4 @@
+from tabnanny import verbose
 from django.db import models
 
 # Create your models here.
@@ -33,6 +34,10 @@ class About(models.Model):
 
     def __str__(self):
         return self.nome_about
+
+    class Meta:
+        verbose_name = 'Presonalização da página Sobre Nós'
+        verbose_name_plural = 'Presonalização da página Sobre Nós'
 
 
 class Funcionario(models.Model):

@@ -16,6 +16,10 @@ class Shop(models.Model):
     def __str__(self):
         return self.nome_shop
 
+    class Meta:
+        verbose_name = 'Presonalização da página Estoque'
+        verbose_name_plural = 'Presonalização da página Estoque'
+
 
 class Car(models.Model):
 
@@ -83,3 +87,7 @@ class Car(models.Model):
 
     def __str__(self):
         return self.modelo
+
+    class Meta:
+        verbose_name = 'Carro'
+        verbose_name_plural = 'Carros'

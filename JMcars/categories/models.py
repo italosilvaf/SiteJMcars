@@ -24,6 +24,10 @@ class Cor(models.Model):
     def __str__(self):
         return self.nome_cor
 
+    class Meta:
+        verbose_name = 'Cor'
+        verbose_name_plural = 'Cores'
+
 
 class Cambio(models.Model):
     nome_cambio = models.CharField(max_length=50, verbose_name='Câmbio')
