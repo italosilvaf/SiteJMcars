@@ -202,7 +202,7 @@
     <div class="container h-100" data-aos="zoom-in" data-aos-duration="1500">
       <div class="row h-100">
         <div class="col-lg-12">
-          <div class="breadcrumb-item text-night-rider">
+          <div class="breadcrumb-item text-white">
             <h2 class="breadcrumb-heading">{{ shop.titulo_shop}}</h2>
             <ul>
               <li>
@@ -501,20 +501,15 @@
                           <li><b class="itens-lista">Câmbio:</b> {{car.cambio}}</li>
                           <li><b class="itens-lista">Categoria:</b> {{car.categoria_carro}}</li>
                         </ul>
+                        {% if car.opcionais %}
                         <ul class="lista-informacoes">
                           <li><b class="itens-lista">Opcionais: </b>
                             <ul class="itens-lista-opcionais">
-                              <li>Ar-condicionado</li>
-                              <li>Direção Hidráulica</li>
-                              <li>Vidros elétricos</li>
-                              <li>Alarme</li>
-                              <li>Ar-condicionado</li>
-                              <li>Direção Hidráulica</li>
-                              <li>Vidros elétricos</li>
-                              <li>Alarme</li>
+                              {{ car.opcionais }}
                             </ul>
                           </li>
                         </ul>
+                        {% endif %}
                       </div>
                       </p>
                     </div>

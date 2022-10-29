@@ -648,17 +648,16 @@
                   <b class="itens-lista">Categoria:</b> {{car.categoria_carro}}
                 </li>
               </ul>
+              {% if car.opcionais %}
               <ul class="lista">
                 <li>
                   <b class="itens-lista">Opcionais: </b>
                   <ul class="itens-lista-opcionais">
-                    <li>Ar-condicionado</li>
-                    <li>Direção Hidráulica</li>
-                    <li>Vidros elétricos</li>
-                    <li>Alarme</li>
+                    {{ car.opcionais }}
                   </ul>
                 </li>
               </ul>
+              {% endif %}
             </div>
             <div class="titulo-tem-interesse">
               Tem Interesse? Entre em contato.

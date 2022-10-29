@@ -18,25 +18,15 @@ class Home(models.Model):
     titulo_quadrado_grande_um = models.CharField(
         max_length=50, verbose_name='Título 1 do quadrado grande ', blank=True, null=True, default=' ')
     descricao_quadrado_grande_um = models.TextField(
-        max_length=250, verbose_name='Descrição 1 do quadrado grande ', blank=True, null=True, default=None)
+        max_length=100, verbose_name='Descrição 1 do quadrado grande ', blank=True, null=True, default=None)
     titulo_quadrado_grande_dois = models.CharField(
         max_length=50, verbose_name='Título 2 do quadrado grande', blank=True, null=True, default=' ')
     descricao_quadrado_grande_dois = models.TextField(
-        max_length=250, verbose_name='Descrição 2 do quadrado grande ', blank=True, null=True, default=None)
+        max_length=100, verbose_name='Descrição 2 do quadrado grande ', blank=True, null=True, default=None)
     titulo_quadrado_grande_tres = models.CharField(
         max_length=50, verbose_name='Título 3 do quadrado grande', blank=True, null=True, default=' ')
     descricao_quadrado_grande_tres = models.TextField(
-        max_length=250, verbose_name='Descrição 3 do quadrado grande ', blank=True, null=True, default=None)
-    imagem_final_home = models.ImageField(
-        upload_to='imagens_home/background_footer', blank=True, null=True, verbose_name='Imagem do final da página (1920x803)')
-    titulo_final_home = models.CharField(
-        max_length=50, verbose_name='Título do final da página', blank=True, null=True, default=' ')
-    subtitulo_final_home = models.CharField(
-        max_length=50, verbose_name='Subtitulo do final da página', blank=True, null=True, default=' ')
-    conteudo_botao_home = models.CharField(
-        max_length=50, verbose_name='Conteudo do botão do final da página', blank=True, null=True, default=' ')
-    link_botao_home = models.CharField(
-        max_length=1000, verbose_name='Link do botão do final da página', blank=True, null=True, default=' ')
+        max_length=100, verbose_name='Descrição 3 do quadrado grande ', blank=True, null=True, default=None)
 
     def __str__(self):
         return self.nome_home

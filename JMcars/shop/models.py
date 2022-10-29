@@ -36,6 +36,8 @@ class Car(models.Model):
         max_length=50, verbose_name='Preço', default=None)
     categoria_carro = models.ForeignKey(
         Categoria, on_delete=models.DO_NOTHING, blank=False, null=False, verbose_name='Categoria')
+    opcionais = models.TextField(
+        verbose_name='Opcionais', blank=True, null=True)
     publicado = models.BooleanField(
         verbose_name='Publicado', default=False)
     imagem_1 = models.ImageField(
