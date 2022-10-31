@@ -36,8 +36,9 @@
   }
 
   .itens-lista-opcionais {
+    width: 150px;
     margin-left: 50px;
-    line-height: 25px;
+    line-height: 15px;
     list-style-type: circle;
   }
 
@@ -653,7 +654,7 @@
                 <li>
                   <b class="itens-lista">Opcionais: </b>
                   <ul class="itens-lista-opcionais">
-                    {{ car.opcionais }}
+                    {{ car.opcionais| safe }}
                   </ul>
                 </li>
               </ul>

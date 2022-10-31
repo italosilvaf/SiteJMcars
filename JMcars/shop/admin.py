@@ -1,6 +1,7 @@
 from django.contrib import admin
 from . models import Shop
 from . models import Car
+from django_summernote.admin import SummernoteModelAdmin
 
 
 class ShopAdmin(admin.ModelAdmin):
@@ -12,7 +13,7 @@ class ShopAdmin(admin.ModelAdmin):
 admin.site.register(Shop, ShopAdmin)
 
 
-class CarAdmin(admin.ModelAdmin):
+class CarAdmin(SummernoteModelAdmin):
     list_display = ('id',  'modelo', 'cor', 'ano',
                     'quilometragem', 'preco', 'publicado')
     list_display_links = ('id', 'modelo')
