@@ -16,15 +16,15 @@ class Home(models.Model):
     imagem_home = models.ImageField(
         upload_to='imagens_home/background_header', blank=False, null=False, verbose_name='Background (1920x803)', default=None)
     titulo_quadrado_grande_um = models.CharField(
-        max_length=50, verbose_name='Título 1 do quadrado grande ', blank=True, null=True, default=' ')
+        max_length=50, verbose_name='Título 1 do quadrado grande ', blank=False, null=False, default=' ')
     descricao_quadrado_grande_um = models.TextField(
         max_length=100, verbose_name='Descrição 1 do quadrado grande ', blank=True, null=True, default=None)
     titulo_quadrado_grande_dois = models.CharField(
-        max_length=50, verbose_name='Título 2 do quadrado grande', blank=True, null=True, default=' ')
+        max_length=50, verbose_name='Título 2 do quadrado grande', blank=False, null=False, default=' ')
     descricao_quadrado_grande_dois = models.TextField(
         max_length=100, verbose_name='Descrição 2 do quadrado grande ', blank=True, null=True, default=None)
     titulo_quadrado_grande_tres = models.CharField(
-        max_length=50, verbose_name='Título 3 do quadrado grande', blank=True, null=True, default=' ')
+        max_length=50, verbose_name='Título 3 do quadrado grande', blank=False, null=False, default=' ')
     descricao_quadrado_grande_tres = models.TextField(
         max_length=100, verbose_name='Descrição 3 do quadrado grande ', blank=True, null=True, default=None)
 

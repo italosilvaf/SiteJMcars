@@ -16,7 +16,6 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: -100px;
   }
 
   .funcionario-imagem {
@@ -111,66 +110,66 @@
   </div>
 
   <div class="team-member section-space-y-axis-100">
-    <div class="container">
-      <div
-        class="section-title text-center"
-        data-aos="fade-right"
-        data-aos-duration="1000"
+    <div
+      class="section-title text-center"
+      data-aos="fade-right"
+      data-aos-duration="1000"
+    >
+      <span class="about-sub-title text-primary"
+        >{{ about.subtitulo_fotos_about }}</span
       >
-        <span class="about-sub-title text-primary"
-          >{{ about.subtitulo_fotos_about }}</span
-        >
-        <h2 class="about-title titulo-funcionarios">
-          {{ about.titulo_fotos_about }}
-        </h2>
-      </div>
-      <div class="container-funcionarios">
-        {% for funcionario in funcionarios %}
-        <div class="funcionário" data-aos="fade-up" data-aos-duration="1000">
-          <div class="team-member-item img-gradient-effect">
-            <div class="team-member-img">
-              <a>
-                <img
-                  class="img-full funcionario-imagem"
-                  src="{{ funcionario.foto.url }}"
-                  alt="Team Member"
-                />
-              </a>
+      <h2 class="about-title titulo-funcionarios">
+        {{ about.titulo_fotos_about }}
+      </h2>
+    </div>
+    <div class="container-funcionarios">
+      {% for funci in funcionarios %}
+      <div class="funcionário" data-aos="fade-up" data-aos-duration="1000">
+        <div class="team-member-item img-gradient-effect">
+          <div class="team-member-img">
+            <a>
+              <img
+                class="img-full funcionario-imagem"
+                src="{{ funci.foto.url }}"
+                alt="Team Member"
+              />
+            </a>
+          </div>
+          <div class="team-member-content">
+            <h2 class="title mb-0">{{ funci.nome }}</h2>
+            {% if funci.cargo %}
+            <span class="occupation">{{ funci.cargo }}</span>
+            {% endif %}
+            <!---->
+            {%if funci.link_insta or funci.link_whats or funci.link_face%}
+            <div class="social-link with-border pt-2">
+              <ul>
+                {% if funci.link_insta %}
+                <li>
+                  <a href="{{ funcionario.link_insta }}" target="_blank">
+                    <i class="fa fa-instagram"></i>
+                  </a>
+                </li>
+                {% endif %} {% if funci.link_whats %}
+                <li>
+                  <a href="{{ funcionario.link_whats }}" target="_blank">
+                    <i class="fa fa-whatsapp"></i>
+                  </a>
+                </li>
+                {% endif %} {% if funci.link_face %}
+                <li>
+                  <a href="{{ funcionario.link_face }}" target="_blank">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                {% endif %}
+              </ul>
             </div>
-            <div class="team-member-content">
-              <h2 class="title mb-0">{{ funcionario.nome }}</h2>
-              <span class="occupation">{{ funcionario.cargo }}</span>
-
-              {% if funcionario.link_instagram or funcionario.link_whatsapp %}
-              <div class="social-link with-border pt-2">
-                <ul>
-                  {% if funcionario.link_instagram %}
-                  <li>
-                    <a href="{{ funcionario.link_instagram }}" target="_blank">
-                      <i class="fa fa-instagram"></i>
-                    </a>
-                  </li>
-                  {% endif %} {% if funcionario.link_whatsapp %}
-                  <li>
-                    <a href="{{ funcionario.link_whatsapp }}" target="_blank">
-                      <i class="fa fa-whatsapp"></i>
-                    </a>
-                  </li>
-                  {% endif %} {% if funcionario.link_facebook %}
-                  <li>
-                    <a href="{{ funcionario.link_facebook }}" target="_blank">
-                      <i class="fa fa-facebook"></i>
-                    </a>
-                  </li>
-                  {% endif %}
-                </ul>
-              </div>
-              {% endif %}
-            </div>
+            {% endif %}
           </div>
         </div>
-        {% endfor %}
       </div>
+      {% endfor %}
     </div>
   </div>
 

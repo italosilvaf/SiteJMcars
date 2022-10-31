@@ -178,9 +178,13 @@
       data-aos="zoom-in"
       data-aos-duration="1500"
     >
+      {% if home.subtitulo_home %}
       <h3 class="sub-title">{{ home.subtitulo_home }}</h3>
+      {% endif %}
       <h2 class="title mb-3">{{ home.titulo_home }}</h2>
+      {% if home.descricao_home %}
       <p class="short-desc different-width mb-10">{{ home.descricao_home }}</p>
+      {% endif %}
       <div class="button-wrap">
         <a
           class="btn btn-custom-size lg-size btn-primary"
@@ -206,7 +210,7 @@
   <div class="banner-area section-space-top-100">
     <div class="container">
       <div class="row">
-        {% for categoria in categorias %}
+        {% for categoria in categorias %} {% if categoria.imagem_categoria %}
         <div
           class="col-lg-4 col-md-6 mt-3 mb-3"
           data-aos="flip-left"
@@ -232,7 +236,7 @@
             </div>
           </div>
         </div>
-        {% endfor %}
+        {% endif %} {% endfor %}
       </div>
     </div>
   </div>
@@ -255,9 +259,11 @@
               </div>
               <div class="shipping-content">
                 <h2 class="title">{{ home.titulo_quadrado_grande_um }}</h2>
+                {% if home.descricao_quadrado_grande_um %}
                 <p class="short-desc mb-0">
                   {{ home.descricao_quadrado_grande_um }}
                 </p>
+                {% endif %}
               </div>
             </div>
           </div>
@@ -271,9 +277,11 @@
               </div>
               <div class="shipping-content">
                 <h2 class="title">{{ home.titulo_quadrado_grande_dois }}</h2>
+                {% if home.descricao_quadrado_grande_dois %}
                 <p class="short-desc mb-0">
                   {{ home.descricao_quadrado_grande_dois }}
                 </p>
+                {% endif %}
               </div>
             </div>
           </div>
@@ -287,9 +295,11 @@
               </div>
               <div class="shipping-content">
                 <h2 class="title">{{ home.titulo_quadrado_grande_dois }}</h2>
+                {% if home.descricao_quadrado_grande_tres %}
                 <p class="short-desc mb-0">
                   {{ home.descricao_quadrado_grande_tres }}
                 </p>
+                {% endif %}
               </div>
             </div>
           </div>
