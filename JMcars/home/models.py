@@ -14,7 +14,7 @@ class Home(models.Model):
     publicado_home = models.BooleanField(
         verbose_name='Publicado', default=False)
     imagem_home = models.ImageField(
-        upload_to='imagens_home/background_header', blank=False, null=False, verbose_name='Background (1920x803)', default=None)
+        upload_to='imagens_home', blank=False, null=False, verbose_name='Background (1920x803)', default=None)
     titulo_quadrado_grande_um = models.CharField(
         max_length=50, verbose_name='Título 1 do quadrado grande ', blank=False, null=False, default=' ')
     descricao_quadrado_grande_um = models.TextField(
