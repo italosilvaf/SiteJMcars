@@ -3,14 +3,7 @@
 {% endblock %} {% block conteudo %} {% for about in valores %}
 
 <style>
-  .swiper-funcionarios {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   .container-funcionarios {
-    min-height: 100vh;
     display: flex;
     gap: 15px;
     justify-content: center;
@@ -118,7 +111,7 @@
       <span class="about-sub-title text-primary"
         >{{ about.subtitulo_fotos_about }}</span
       >
-      <h2 class="about-title titulo-funcionarios">
+      <h2 class="about-title titulo-funcionarios mb-5">
         {{ about.titulo_fotos_about }}
       </h2>
     </div>
