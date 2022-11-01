@@ -30,13 +30,14 @@ class Car(models.Model):
     ano = models.CharField(max_length=9, verbose_name='Ano', default=None)
     cor = models.ForeignKey(
         Cor, on_delete=models.DO_NOTHING, blank=False, null=False, verbose_name='Cor')
-    quilometragem = models.IntegerField(
-        verbose_name='Quilometragem', default=None)
+    quilometragem = models.CharField(max_length=50,
+                                     verbose_name='Quilometragem', blank=False, null=False)
     motorizacao = models.CharField(
         max_length=50, verbose_name='Motorização', default=None)
     cambio = models.ForeignKey(
         Cambio, on_delete=models.DO_NOTHING, blank=False, null=False, verbose_name='Câmbio')
-    preco = models.FloatField(verbose_name='Preço', default=None)
+    preco = models.CharField(max_length=50, verbose_name='Preço',
+                             default='0', blank=False, null=False)
     categoria_carro = models.ForeignKey(
         Categoria, on_delete=models.DO_NOTHING, blank=False, null=False, verbose_name='Categoria')
     opcionais = models.TextField(
