@@ -136,6 +136,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # django summernote
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-
 # Heroku
 django_heroku.settings(locals())
