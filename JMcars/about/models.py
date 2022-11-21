@@ -25,9 +25,9 @@ class About(models.Model):
     imagem_texto_tres_about = models.ImageField(
         upload_to='imagens_about/imagens_texto_tres', blank=False, null=False, default=None, verbose_name='Imagem do quadrado 3 (400x500)')
     titulo_fotos_about = models.CharField(
-        max_length=50, verbose_name='Título das Fotos',  blank=False, null=False, default=None)
-    subtitulo_fotos_about = models.TextField(
-        max_length=50, verbose_name='Subtítulo das Fotos',  blank=False, null=False, default=None)
+        max_length=50, verbose_name='Título da Equipe de Funcionários',  blank=False, null=False, default=None)
+    subtitulo_fotos_about = models.CharField(
+        max_length=50, verbose_name='Subtítulo da Equipe de Funcionários',  blank=False, null=False, default=None)
 
     def __str__(self):
         return self.nome_about
