@@ -12,7 +12,6 @@ cryptography==3.4.8
 dbus-python==1.2.18
 distlib==0.3.4
 distro==1.7.0
-distro-info===1.1build1
 dj-database-url==1.0.0
 Django==4.0.6
 django-adminlte3==0.1.6
