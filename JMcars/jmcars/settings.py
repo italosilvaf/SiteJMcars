@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-u@$wb%fkmjbb()l3$3z3yb9va5+ff-hylqt61)4i@^!bh#l=gp
 DEBUG = True
 
 ALLOWED_HOSTS = ['https://jmcars.herokuapp.com/',
-                 'https://italosilvaf.com/jmcars',
+                 'https://italosilvaf.com.br/jmcars',
                  ]
 
 
