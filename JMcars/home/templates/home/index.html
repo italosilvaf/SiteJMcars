@@ -51,12 +51,30 @@
     color: #7f7f7f;
   }
 
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+  }
+
   .container-itens-destaque {
     display: flex;
     align-items: center;
+    align-content: center;
+    justify-items: center;
     justify-content: center;
     width: 100%;
     gap: 10px;
+  }
+
+  .setinhas {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
   }
 
   @media (max-device-width: 1599px) and (min-device-width: 1501px) {
@@ -337,13 +355,6 @@
         data-aos-duration="1000"
       >
         <div class="col-lg-12 container-itens-destaque">
-          <!-- Botão esquerdo -->
-          <div class="product-button-wrap pt-10">
-            <div class="product-button-prev">
-              <i class="pe-7s-angle-left"></i>
-            </div>
-          </div>
-          <!-- End Botão esquerdo -->
           <div class="swiper-container product-slider">
             <div class="swiper-wrapper text-heading">
               {% for car in cars %}
@@ -378,6 +389,16 @@
               {% endfor %}
             </div>
           </div>
+        </div>
+        <div class="setinhas">
+          <!-- Botão esquerdo -->
+          <div class="product-button-wrap pt-10">
+            <div class="product-button-prev">
+              <i class="pe-7s-angle-left"></i>
+            </div>
+          </div>
+          <!-- End Botão esquerdo -->
+
           <!-- Botão direito -->
           <div class="product-button-wrap pt-10">
             <div class="product-button-next">
