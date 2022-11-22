@@ -12,14 +12,20 @@
   }
 
   .titulo-detalhes {
+    text-align: center;
     font-size: 40px;
   }
 
   .container-lista {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
     flex: 1 0 400px;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
     color: #444444;
   }
 
@@ -28,25 +34,36 @@
     line-height: 40px;
     display: flex;
     flex-direction: column;
-    margin-right: 20px;
   }
 
   .itens-lista {
     font-weight: 500;
   }
 
+  .lista-opcionais {
+    justify-content: flex-start;
+  }
+
   .itens-lista-opcionais {
     width: 150px;
-    margin-left: 50px;
     line-height: 20px;
     list-style-type: circle;
   }
 
   .titulo-tem-interesse {
+    text-align: center;
     margin-top: 20px;
     font-size: 25px;
     font-weight: 500;
     color: #444444;
+  }
+
+  .botao-entrar-em-contato {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
   }
 
   .btn-custom-size.lg-sizes {
@@ -634,12 +651,14 @@
         <div class="col-lg-6 pt-9 pt-lg-0">
           <div class="single-product-content">
             <h2 class="titulo-detalhes mb-3">{{ car.modelo }}</h2>
-            <div class="price-box pb-3 container-preco">
-              <span class="new-price text-color">R$</span>
-              <span class="new-price text-danger">{{ car.preco }}</span>
-            </div>
             <div class="container-lista">
               <ul class="lista">
+                <li>
+                  <div class="price-box pb-3 container-preco">
+                    <span class="new-price text-color">R$</span>
+                    <span class="new-price text-danger">{{ car.preco }}</span>
+                  </div>
+                </li>
                 <li><b class="itens-lista">Marca:</b> {{car.marca}}</li>
                 <li><b class="itens-lista">Ano:</b> {{car.ano}}</li>
                 <li><b class="itens-lista">Cor:</b> {{car.cor}}</li>
@@ -657,7 +676,7 @@
               </ul>
               {% if car.opcionais %}
               <ul class="lista">
-                <li>
+                <li class="lista-opcionais">
                   <b class="itens-lista">Opcionais: </b>
                   <ul class="itens-lista-opcionais">
                     {{ car.opcionais| safe }}
@@ -669,16 +688,18 @@
             <div class="titulo-tem-interesse">
               Tem Interesse? Entre em contato.
             </div>
-            <ul class="quantity-with-btn pb-9 pt-2">
-              <li class="add-to-cart">
-                <a
-                  class="btn btn-custom-size lg-sizes btn-primary"
-                  href="https://api.whatsapp.com/send?phone=553496540161&text=Tenho%20interesse%20em%20um%20dos%20seus%20carros.%20🚗%20{{car.modelo}},%20📆%20{{car.ano}},%20🎨%20{{car.cor}},%20{{car.quilometragem}}Km,%20💵%20R${{car.preco}}."
-                  target="_blank"
-                  >Entrar em contato <i class="fa fa-whatsapp"></i
-                ></a>
-              </li>
-            </ul>
+            <div class="botao-entrar-em-contato">
+              <ul class="quantity-with-btn pb-9 pt-2">
+                <li class="add-to-cart">
+                  <a
+                    class="btn btn-custom-size lg-sizes btn-primary"
+                    href="https://api.whatsapp.com/send?phone=553496540161&text=Tenho%20interesse%20em%20um%20dos%20seus%20carros.%20🚗%20{{car.modelo}},%20📆%20{{car.ano}},%20🎨%20{{car.cor}},%20{{car.quilometragem}}Km,%20💵%20R${{car.preco}}."
+                    target="_blank"
+                    >Entrar em contato <i class="fa fa-whatsapp"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
