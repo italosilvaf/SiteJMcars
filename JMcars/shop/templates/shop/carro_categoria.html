@@ -62,8 +62,12 @@
 
   /* List */
   .container-itens-list{
+    display: grid;
     align-items: center;
+    align-content: center;
+    justify-items: center;
     justify-content: center;
+    margin-left: 10px;
   }
   
   .container-list{
@@ -209,7 +213,7 @@
               <li>
                 <a href="{% url 'home' %}">Home /</a>
               </li>
-              <li>Shop Default</li>
+              <li>Estoque</li>
             </ul>
           </div>
         </div>
@@ -249,131 +253,6 @@
                     </a>
                   </li>
                   {% endfor %}
-                </ul>
-              </div>
-            </div>
-            <div class="widgets-area mb-9">
-              <h2 class="widgets-title mb-5">Color</h2>
-              <div class="widgets-item">
-                <ul class="widgets-checkbox">
-                  <li>
-                    <input
-                      class="input-checkbox"
-                      type="checkbox"
-                      id="color-selection-1"
-                    />
-                    <label class="label-checkbox mb-0" for="color-selection-1"
-                      >Branco
-                      <span>(12)</span>
-                    </label>
-                  </li>
-                  <li>
-                    <input
-                      class="input-checkbox"
-                      type="checkbox"
-                      id="color-selection-2"
-                      checked
-                    />
-                    <label class="label-checkbox mb-0" for="color-selection-2"
-                      >Preto
-                      <span>(09)</span>
-                    </label>
-                  </li>
-                  <li>
-                    <input
-                      class="input-checkbox"
-                      type="checkbox"
-                      id="color-selection-3"
-                    />
-                    <label class="label-checkbox mb-0" for="color-selection-3"
-                      >Prata
-                      <span>(7)</span>
-                    </label>
-                  </li>
-                  <li>
-                    <input
-                      class="input-checkbox"
-                      type="checkbox"
-                      id="color-selection-4"
-                    />
-                    <label class="label-checkbox mb-0" for="color-selection-4"
-                      >Outros
-                      <span>(11)</span>
-                    </label>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="widgets-area mb-9">
-              <h2 class="widgets-title mb-5">Size</h2>
-              <div class="widgets-item">
-                <ul class="widgets-checkbox">
-                  <li>
-                    <input
-                      class="input-checkbox"
-                      type="checkbox"
-                      id="size-selection-1"
-                    />
-                    <label class="label-checkbox mb-0" for="size-selection-1"
-                      >M<span>(12)</span></label
-                    >
-                  </li>
-                  <li>
-                    <input
-                      class="input-checkbox"
-                      type="checkbox"
-                      id="size-selection-2"
-                      checked
-                    />
-                    <label class="label-checkbox mb-0" for="size-selection-2"
-                      >L<span>(09)</span></label
-                    >
-                  </li>
-                  <li>
-                    <input
-                      class="input-checkbox"
-                      type="checkbox"
-                      id="size-selection-3"
-                    />
-                    <label class="label-checkbox mb-0" for="size-selection-3"
-                      >XL<span>(07)</span></label
-                    >
-                  </li>
-                  <li>
-                    <input
-                      class="input-checkbox"
-                      type="checkbox"
-                      id="size-selection-4"
-                    />
-                    <label class="label-checkbox mb-0" for="size-selection-4"
-                      >XXL<span>(11)</span></label
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="widgets-area">
-              <h2 class="widgets-title mb-5">Tag</h2>
-              <div class="widgets-item">
-                <ul class="widgets-tags">
-                  <li>
-                    <a href="#">Auto Parts</a>
-                  </li>
-                  <li>
-                    <a href="#">Car Parts</a>
-                  </li>
-                  <li>
-                    <a href="#">Automobil Parts</a>
-                  </li>
-                  <li>
-                    <a href="#">Car</a>
-                  </li>
-                  <li>
-                    <a href="#">Auto Parts</a>
-                  </li>
-                  <li>
-                    <a href="#">Cat Parts</a>
-                  </li>
                 </ul>
               </div>
             </div>
