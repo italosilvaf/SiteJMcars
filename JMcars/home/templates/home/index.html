@@ -3,6 +3,10 @@
 {% endblock %} {% block conteudo %} {% for home in valores %}
 
 <style>
+  .descricao-pagina {
+    text-transform: capitalize;
+  }
+
   .icone-quadrado-grande {
     width: 80px;
   }
@@ -201,7 +205,9 @@
       {% endif %}
       <h2 class="title mb-3">{{ home.titulo_home }}</h2>
       {% if home.descricao_home %}
-      <p class="short-desc different-width mb-10">{{ home.descricao_home }}</p>
+      <p class="short-desc different-width mb-10 descricao-pagina">
+        {{ home.descricao_home }}
+      </p>
       {% endif %}
       <div class="button-wrap">
         <a
