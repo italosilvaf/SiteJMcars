@@ -3,6 +3,11 @@
 {% endblock %} {% block conteudo %} {% for home in valores %}
 
 <style>
+  .titulo-home {
+    font-size: 100px;
+    text-transform: uppercase;
+  }
+
   .short-descricao {
     text-transform: uppercase;
     font-size: 24px;
@@ -142,6 +147,10 @@
     .short-descricao {
       font-size: 16px;
     }
+
+    .titulo-home {
+      font-size: 55px;
+    }
   }
 
   @media (max-device-width: 575px) and (min-device-width: 486px) {
@@ -167,6 +176,10 @@
     .short-descricao {
       font-size: 16px;
     }
+
+    .titulo-home {
+      font-size: 55px;
+    }
   }
 
   @media (max-device-width: 485px) and (min-device-width: 360px) {
@@ -186,6 +199,10 @@
 
     .short-descricao {
       font-size: 16px;
+    }
+
+    .titulo-home {
+      font-size: 55px;
     }
   }
 
@@ -207,6 +224,10 @@
     .short-descricao {
       font-size: 16px;
     }
+
+    .titulo-home {
+      font-size: 55px;
+    }
   }
 </style>
 
@@ -221,7 +242,7 @@
       {% if home.subtitulo_home %}
       <h3 class="sub-title">{{ home.subtitulo_home }}</h3>
       {% endif %}
-      <h2 class="title mb-3">{{ home.titulo_home }}</h2>
+      <h2 class="titulo-home mb-3">{{ home.titulo_home }}</h2>
       {% if home.descricao_home %}
       <p class="short-descricao different-width mb-10">
         {{ home.descricao_home }}
