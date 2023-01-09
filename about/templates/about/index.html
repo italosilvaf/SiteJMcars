@@ -1,0 +1,181 @@
+{% extends 'base.html' %} {% load static %} {% block titulo_da_guia %}
+<title>JMcars - Sobre Nós</title>
+{% endblock %} {% block conteudo %} {% for about in personalizacoes %}
+
+<style>
+  .container-funcionarios {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .funcionario-imagem {
+    width: 300px;
+    height: 400px;
+  }
+
+  .scroll-horizontal-removido {
+    overflow: hidden;
+  }
+</style>
+
+<!-- Begin Main Content Area -->
+<main class="main-content scroll-horizontal-removido">
+  {% if about.imagem_about %}
+  <div
+    class="breadcrumb-area breadcrumb-height"
+    data-bg-image="{{ about.imagem_about.url}}"
+  >
+  {% else %}
+  <div
+  class="breadcrumb-area breadcrumb-height"
+  data-bg-image="{% static 'images/about/Background-About_Audi-R8.jpg' %}"
+  >
+  {% endif %}
+    <div class="container h-100" data-aos="zoom-in" data-aos-duration="1500">
+      <div class="row h-100">
+        <div class="col-lg-12">
+          <div class="breadcrumb-item text-white">
+            <h2 class="breadcrumb-heading">{{ about.titulo_about }}</h2>
+            <ul>
+              <li>
+                <a href="{% url 'home' %}">Home /</a>
+              </li>
+              <li>Sobre Nós</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="about-banner different-bg-position section-space-y-axis-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="about-banner-content text-center section-space-bottom-95">
+            <div
+              class="section-title"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              <span class="about-sub-title text-primary"
+                >{{ about.subtitulo_texto_about }}</span
+              >
+              <h2 class="about-title mb-5">{{ about.titulo_texto_about }}</h2>
+              <p class="short-desc mb-0">{{ about.texto_about}}</p>
+            </div>
+          </div>
+          <div class="about-banner-img row">
+            <div class="col-lg-4">
+              <div
+                class="single-img img-hover-effect"
+                data-aos="fade-up-right"
+                data-aos-duration="1000"
+              >
+                <img
+                  class="img-full"
+                  src="{{ about.imagem_texto_um_about.url }}"
+                  alt="About Banner"
+                />
+              </div>
+            </div>
+            <div class="col-lg-4 section-space-top-100">
+              <div
+                class="single-img img-hover-effect"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+              >
+                <img
+                  class="img-full"
+                  src="{{ about.imagem_texto_dois_about.url }}"
+                  alt="About Banner"
+                />
+              </div>
+            </div>
+            <div class="col-lg-4 section-space-top-100 pt-lg-0">
+              <div
+                class="single-img img-hover-effect"
+                data-aos="fade-up-left"
+                data-aos-duration="1000"
+              >
+                <img
+                  class="img-full"
+                  src="{{ about.imagem_texto_tres_about.url }}"
+                  alt="About Banner"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% if funcionarios %}
+  <div class="team-member mt-5 mb-10">
+    <div
+      class="section-title text-center"
+      data-aos="fade-right"
+      data-aos-duration="1000"
+    >
+      <span class="about-sub-title text-primary"
+        >{{ about.subtitulo_fotos_about }}</span
+      >
+      <h2 class="about-title titulo-funcionarios mb-5">
+        {{ about.titulo_fotos_about }}
+      </h2>
+    </div>
+    <div class="container-funcionarios">
+      {% for funci in funcionarios %}
+      <div class="funcionário" data-aos="fade-up" data-aos-duration="1000">
+        <div class="team-member-item img-gradient-effect">
+          <div class="team-member-img">
+            <a>
+              <img
+                class="img-full funcionario-imagem"
+                src="{{ funci.foto.url }}"
+                alt="Team Member"
+              />
+            </a>
+          </div>
+          <div class="team-member-content">
+            <h2 class="title mb-0">{{ funci.nome }}</h2>
+            {% if funci.cargo %}
+            <span class="occupation">{{ funci.cargo }}</span>
+            {% endif %}
+            <!---->
+            {%if funci.link_insta or funci.link_whats or funci.link_face%}
+            <div class="social-link with-border pt-2">
+              <ul>
+                {% if funci.link_insta %}
+                <li>
+                  <a href="{{ funci.link_insta }}" target="_blank">
+                    <i class="fa fa-instagram"></i>
+                  </a>
+                </li>
+                {% endif %} {% if funci.link_whats %}
+                <li>
+                  <a href="{{ funci.link_whats }}" target="_blank">
+                    <i class="fa fa-whatsapp"></i>
+                  </a>
+                </li>
+                {% endif %} {% if funci.link_face %}
+                <li>
+                  <a href="{{ funci.link_face }}" target="_blank">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                {% endif %}
+              </ul>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% endif %} {% endfor %} {% endblock %}
+</main>

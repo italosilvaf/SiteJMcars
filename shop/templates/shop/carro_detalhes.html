@@ -1,0 +1,715 @@
+{% extends 'base.html' %} {% load static %} {% load filters %}
+<x></x>
+{% block titulo_da_guia %}
+<title>JMcars - {{car.modelo}}</title>
+{% endblock %} {% block conteudo %}
+
+<style>
+  .text-color {
+    color: #444444;
+  }
+
+  .container_carro_detalhes {
+    z-index: 1;
+  }
+
+  .titulo-detalhes {
+    text-align: center;
+    font-size: 40px;
+  }
+
+  .container-lista {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+    flex: 1 0 400px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: #444444;
+  }
+
+  .lista {
+    font-size: 16px;
+    line-height: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .itens-lista {
+    font-weight: 500;
+  }
+
+  .lista-opcionais {
+    justify-content: flex-start;
+  }
+
+  .itens-lista-opcionais {
+    width: 150px;
+    line-height: 20px;
+    list-style-type: circle;
+  }
+
+  .titulo-tem-interesse {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: 500;
+    color: #444444;
+  }
+
+  .botao-entrar-em-contato {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+  }
+
+  .btn-custom-size.lg-sizes {
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+  }
+
+  @media (max-device-width: 768px) {
+    .single-product-img {
+      margin-top: 30px;
+    }
+  }
+</style>
+
+<!-- Begin Main Content Area  -->
+<main class="main-content mb-5">
+  <div
+    class="single-product-area section-space-top-100 container_carro_detalhes"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="single-product-img">
+            <div
+              class="swiper-container single-product-slider container_detalhes"
+            >
+              <div class="swiper-wrapper">
+                <!-- Imagem 1-->
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_1.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_1.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+
+                <!-- Imagem 2 -->
+                {% if car.imagem_2 %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_2.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_2.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endif %}
+
+                <!-- Imagem 3 -->
+                {% if car.imagem_3 %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_3.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_3.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endif %}
+
+                <!-- Imagem 4 -->
+                {% if car.imagem_4 %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_4.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_4.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endif %}
+
+                <!-- Imagem 5 -->
+                {% if car.imagem_5 %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_5.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_5.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endif %}
+
+                <!-- Imagem 6 -->
+                {% if car.imagem_6 %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_6.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_6.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endif %}
+
+                <!-- Imagem 7 -->
+                {% if car.imagem_7 %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_7.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_7.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endif %}
+
+                <!-- Imagem 8 -->
+                {% if car.imagem_8 %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_8.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_8.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endif %}
+
+                <!-- Imagem 9 -->
+                {% if car.imagem_9 %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_9.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_9.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endif %}
+
+                <!-- Imagem 10 -->
+                {% if car.imagem_10 %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_10.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_10.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endif %}
+
+                <!-- Imagem 11 -->
+                {% if car.imagem_11 %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_11.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_11.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endif %}
+
+                <!-- Imagem 12 -->
+                {% if car.imagem_12 %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_12.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_12.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endif %}
+
+                <!-- Imagem 13 -->
+                {% if car.imagem_13 %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_13.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_13.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endif %}
+
+                <!-- Imagem 14 -->
+                {% if car.imagem_14 %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_14.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_14.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endif %}
+
+                <!-- Imagem 15 -->
+                {% if car.imagem_15 %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_15.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_15.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endif %}
+
+                <!-- Imagem 16 -->
+                {% if car.imagem_16 %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_16.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_16.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endif %}
+
+                <!-- Imagem 17 -->
+                {% if car.imagem_17 %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_17.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_17.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endif %}
+
+                <!-- Imagem 18 -->
+                {% if car.imagem_18 %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_18.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_18.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endif %}
+
+                <!-- Imagem 19 -->
+                {% if car.imagem_19 %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_19.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_19.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endif %}
+
+                <!-- Imagem 20 -->
+                {% if car.imagem_20 %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ car.imagem_20.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_20.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+            {% if car.imagem_2 %}
+            <div class="thumbs-arrow-holder">
+              <div class="swiper-container single-product-thumbs">
+                <div class="swiper-wrapper">
+                  <!-- Imagem 1 -->
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_1.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+
+                  <!-- Imagem 2 -->
+                  {% if car.imagem_2 %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_2.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endif %}
+
+                  <!-- Imagem 3 -->
+                  {% if car.imagem_3 %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_3.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endif %}
+
+                  <!-- Imagem 4 -->
+                  {% if car.imagem_4 %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_4.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endif %}
+
+                  <!-- Imagem 5 -->
+                  {% if car.imagem_5 %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_5.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endif %}
+
+                  <!-- Imagem 6 -->
+                  {% if car.imagem_6 %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_6.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endif %}
+
+                  <!-- Imagem 7 -->
+                  {% if car.imagem_7 %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_7.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endif %}
+
+                  <!-- Imagem 8 -->
+                  {% if car.imagem_8 %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_8.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endif %}
+
+                  <!-- Imagem 9 -->
+                  {% if car.imagem_9 %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_9.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endif %}
+
+                  <!-- Imagem 10 -->
+                  {% if car.imagem_10 %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_10.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endif %}
+
+                  <!-- Imagem 11 -->
+                  {% if car.imagem_11 %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_11.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endif %}
+
+                  <!-- Imagem 12 -->
+                  {% if car.imagem_12 %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_12.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endif %}
+
+                  <!-- Imagem 13 -->
+                  {% if car.imagem_13 %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_13.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endif %}
+
+                  <!-- Imagem 14 -->
+                  {% if car.imagem_14 %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_14.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endif %}
+
+                  <!-- Imagem 15 -->
+                  {% if car.imagem_15 %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_15.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endif %}
+
+                  <!-- Imagem 16 -->
+                  {% if car.imagem_16 %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_16.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endif %}
+
+                  <!-- Imagem 17 -->
+                  {% if car.imagem_17 %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_17.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endif %}
+
+                  <!-- Imagem 18 -->
+                  {% if car.imagem_18 %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_18.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endif %}
+
+                  <!-- Imagem 19 -->
+                  {% if car.imagem_19 %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_19.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endif %}
+
+                  <!-- Imagem 20 -->
+                  {% if car.imagem_20 %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ car.imagem_20.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endif %}
+                </div>
+              </div>
+              <!-- Add Arrows -->
+              <div class="thumbs-button-wrap d-none d-md-block">
+                <div class="thumbs-button-prev">
+                  <i class="pe-7s-angle-left"></i>
+                </div>
+                <div class="thumbs-button-next">
+                  <i class="pe-7s-angle-right"></i>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        <div class="col-lg-6 pt-9 pt-lg-0">
+          <div class="single-product-content">
+            <h2 class="titulo-detalhes mb-3">{{ car.modelo }}</h2>
+            <div class="container-lista">
+              <ul class="lista">
+                <li>
+                  <div class="price-box pb-3 container-preco">
+                    <span class="new-price text-color">R$</span>
+                    <span class="new-price text-danger"
+                      >{{ car.preco|formata_preco }}</span
+                    >
+                  </div>
+                </li>
+                <li><b class="itens-lista">Marca:</b> {{car.marca}}</li>
+                <li><b class="itens-lista">Ano:</b> {{car.ano}}</li>
+                <li><b class="itens-lista">Cor:</b> {{car.cor}}</li>
+                <li>
+                  <b class="itens-lista">Quilometragem:</b>
+                  {{car.quilometragem|formata_quilometragem}}
+                </li>
+                <li>
+                  <b class="itens-lista">Motorização:</b> {{car.motorizacao}}
+                </li>
+                <li><b class="itens-lista">Câmbio:</b> {{car.cambio}}</li>
+                <li>
+                  <b class="itens-lista">Categoria:</b> {{car.categoria_carro}}
+                </li>
+              </ul>
+              {% if car.opcionais %}
+              <ul class="lista">
+                <li class="lista-opcionais">
+                  <b class="itens-lista">Opcionais: </b>
+                  <ul class="itens-lista-opcionais">
+                    {{ car.opcionais| safe }}
+                  </ul>
+                </li>
+              </ul>
+              {% endif %}
+            </div>
+            <div class="titulo-tem-interesse">
+              Tem Interesse? Entre em contato.
+            </div>
+            <div class="botao-entrar-em-contato">
+              <ul class="quantity-with-btn pb-9 pt-2">
+                <li class="add-to-cart">
+                  <a
+                    class="btn btn-custom-size lg-sizes btn-primary"
+                    href="https://api.whatsapp.com/send?phone=553496540161&text=Tenho%20interesse%20em%20um%20dos%20seus%20carros.%20🚗%20{{car.modelo}},%20📆%20{{car.ano}},%20🎨%20{{car.cor}},%20{{car.quilometragem|formata_quilometragem}},%20💵%20R${{car.preco|formata_preco}}."
+                    target="_blank"
+                    >Entrar em contato <i class="fa fa-whatsapp"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<!-- Main Content Area End Here  -->
+
+{% endblock %}
