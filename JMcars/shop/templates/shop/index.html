@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% load static %} {% block titulo_da_guia %}
 <title>JMcars - Estoque</title>
-{% endblock %} {% block conteudo %} {% for shop in valores %}
+{% endblock %} {% block conteudo %}
 
 <style>
   /* Geral */
@@ -198,8 +198,11 @@
 
 </style>
 
+
+
 <!-- Begin Main Content Area -->
 <main class="main-content">
+
   <div
     class="breadcrumb-area breadcrumb-height"
     data-bg-image="{{ shop.imagem_shop.url}}"
@@ -256,6 +259,28 @@
                 </ul>
               </div>
             </div>
+
+            <div class="widgets-area mb-9">
+              <h2 class="widgets-title mb-5">Color</h2>
+              <div class="widgets-item">
+
+              <form id="widgets-checkbox-form" action="#" method="GET">
+                  <ul class="widgets-checkbox">
+                      {% for cor in cores %}
+                      <li>
+                          <input class="input-checkbox" type="checkbox" id="color-selection-{{ cor.id }}" name="color-selection" value="{{ cor.nome_cor }}">
+                          <label class="label-checkbox mb-0" for="color-selection-{{ cor.id }}">
+                              <span>{{ cor.nome_cor }}</span>
+                          </label>
+                      </li>
+                      {% endfor %}
+                  </ul>
+                  <input type="submit" class="btn btn-custom-size lg-size btn-primary w-100 mb-5 mt-5" value="Filtrar">
+                </form>
+              </div>
+          </div>
+
+
           </div>
         </div>
         <div class="col-xl-9 col-lg-8 order-lg-2 order-1">
@@ -445,4 +470,4 @@
 </main>
 <!-- Main Content Area End Here -->
 
-{% endfor %} {% endblock %}
+ {% endblock %}

@@ -2,8 +2,11 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView
 from django.db.models import Q
 from .models import Shop
-from .models import Car
+from .models import Car, Cor
 from categories.models import Categoria
+from django.http import HttpResponse
+from django.template import loader
+import json
 
 
 class CarView(ListView):
@@ -13,10 +16,29 @@ class CarView(ListView):
     context_object_name = 'cars'
 
     def get_context_data(self, **kwargs):
+
+        print('X'*30)
+        print(self.request.GET.get['color-selection[]'])
+        #cores_new = self.request.GET.get
+        #cores_new = list(cores_new).index('color-selection')
+        #print(cores_new)
+        print('X'*30)
+
         context = super().get_context_data(**kwargs)
-        context['valores'] = Shop.objects.filter(
-            publicado_shop=True).order_by('-id')[:1]
-        context['categorias'] = Categoria.objects.all()
+        shop = Shop.objects.filter(
+            publicado_shop=True).order_by('-id').first()
+        categorias = Categoria.objects.all()
+        cars = Car.objects.filter(
+            publicado=True).order_by('-id').all()
+        cores = Cor.objects.all()
+        
+        context = {
+            'shop': shop,
+            'categorias': categorias,
+            'cars': cars,
+            'cores': cores,
+        }
+
         return context
 
     def get_queryset(self):
@@ -80,3 +102,24 @@ class CarroBusca(CarView):
         )
 
         return qs
+    
+def index_cars(request, busca):    
+    template = loader.get_template('shop/index.html')
+
+    cars = Car.objects.filter(
+            Q(modelo__icontains=busca) |
+            Q(marca__nome_marca__icontains=busca) |
+            Q(ano__icontains=busca) |
+            Q(cor__nome_cor__icontains=busca) |
+            Q(quilometragem__icontains=busca) |
+            Q(motorizacao__icontains=busca) |
+            Q(cambio__nome_cambio__icontains=busca) |
+            Q(categoria_carro__nome_categoria__icontains=busca)
+        )
+
+    context = {
+        'busca': busca,
+        'cars': cars,
+    }
+
+    return HttpResponse(template.render(context, request))

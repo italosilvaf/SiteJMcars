@@ -7,4 +7,6 @@ urlpatterns = [
     path('busca/', views.CarroBusca.as_view(), name='carro_busca'),
     path('categoria/<str:nome_categoria>',
          views.CarroCategoria.as_view(), name='carro_categorias'),
+    path('dieison/<str:busca>', views.index_cars, name='dieison'),
+    
 ]
