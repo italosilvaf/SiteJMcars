@@ -8,7 +8,7 @@ from categories.models import Categoria
 class CarView(ListView):
     model = Car
     template_name = 'shop/index.html'
-    paginate_by = 2
+    paginate_by = 12
     context_object_name = 'cars'
 
     def get_context_data(self, **kwargs):
