@@ -8,27 +8,28 @@ from categories.models import Categoria
 class CarView(ListView):
     model = Car
     template_name = 'shop/index.html'
-    paginate_by = 12
+    paginate_by = 2
+    context_object_name = 'cars'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        cars = Car.objects.filter(publicado=True).order_by('-id')
-        personalizacoes = Shop.objects.filter(
+        context['personalizacoes'] = Shop.objects.filter(
             publicado_shop=True).order_by('-id')[:1]
-        categorias = Categoria.objects.all()
-
-        categoria = self.kwargs.get('nome_categoria', None)
-        if categoria:
-            cars = Car.objects.filter(
-                categoria_carro__nome_categoria__iexact=categoria, publicado=True).order_by('-id')
-
-        context = {
-            'cars': cars,
-            'personalizacoes': personalizacoes,
-            'categorias': categorias,
-        }
+        context['categorias'] = Categoria.objects.all()
 
         return context
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        categoria = self.kwargs.get('nome_categoria', None)
+
+        if not categoria:
+            qs = qs.filter(publicado=True).order_by('-id')
+            return qs
+
+        qs = qs.filter(
+            categoria_carro__nome_categoria__iexact=categoria).order_by('-id')
+        return qs
 
 
 class CarroDetalhes(DetailView):
