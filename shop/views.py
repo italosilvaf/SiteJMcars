@@ -14,7 +14,7 @@ class CarView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['personalizacoes'] = Shop.objects.filter(
-            publicado_shop=True).order_by('-id')[:1]
+            publicado_shop=True).order_by('-id').first()
         context['categorias'] = Categoria.objects.all()
 
         return context

@@ -2,7 +2,7 @@
 <x></x>
 {% block titulo_da_guia %}
 <title>JMcars - Estoque</title>
-{% endblock %} {% block conteudo %} {% for shop in personalizacoes %}
+{% endblock %} {% block conteudo %}
 
 <style>
   /* Geral */
@@ -202,10 +202,10 @@
 
 <!-- Begin Main Content Area -->
 <main class="main-content">
-  {% if shop.imagem_shop %}
+  {% if personalizacoes.imagem_shop %}
   <div
     class="breadcrumb-area breadcrumb-height"
-    data-bg-image="{{ shop.imagem_shop.url}}"
+    data-bg-image="{{ personalizacoes.imagem_shop.url}}"
   >
   {% else %}
   <div
@@ -217,7 +217,11 @@
       <div class="row h-100">
         <div class="col-lg-12">
           <div class="breadcrumb-item text-white">
-            <h2 class="breadcrumb-heading">{{ shop.titulo_shop}}</h2>
+            {% if personalizacoes.titulo_shop %}
+            <h2 class="breadcrumb-heading">{{ personalizacoes.titulo_shop}}</h2>
+            {% else %}
+            <h2 class="breadcrumb-heading">Estoque</h2>
+            {% endif %}
             <ul>
               <li>
                 <a href="{% url 'home' %}">Home /</a>
@@ -454,4 +458,4 @@
 </main>
 <!-- Main Content Area End Here -->
 
-{% endfor %} {% endblock %}
+{% endblock %}

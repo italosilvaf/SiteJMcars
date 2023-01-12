@@ -2,7 +2,7 @@
 <x></x>
 {% block titulo_da_guia %}
 <title>JMcars - Home</title>
-{% endblock %} {% block conteudo %} {% for home in personalizacoes %}
+{% endblock %} {% block conteudo %}
 
 <style>
   .titulo-home {
@@ -14,6 +14,15 @@
     text-transform: uppercase;
     font-size: 24px;
     line-height: 30px;
+  }
+
+  .categorias-home {
+    justify-content: center;
+  }
+
+  .imagem-categoria {
+    max-width: 400px;
+    max-height: 250px;
   }
 
   .icone-quadrado-grande {
@@ -234,8 +243,11 @@
 </style>
 
 <!-- Begin Slider Area -->
-{% if home.imagem_home %}
-<div class="slide-inner bg-height" data-bg-image="{{ home.imagem_home.url }}">
+{% if personalizacoes.imagem_home %}
+<div
+  class="slide-inner bg-height"
+  data-bg-image="{{ personalizacoes.imagem_home.url }}"
+>
   {% else %}
   <div
     class="slide-inner bg-height"
@@ -248,13 +260,15 @@
         data-aos="zoom-in"
         data-aos-duration="1500"
       >
-        {% if home.subtitulo_home %}
-        <h3 class="sub-title">{{ home.subtitulo_home }}</h3>
-        {% endif %}
-        <h2 class="titulo-home mb-3">{{ home.titulo_home }}</h2>
-        {% if home.descricao_home %}
+        {% if personalizacoes.subtitulo_home %}
+        <h3 class="sub-title">{{ personalizacoes.subtitulo_home }}</h3>
+        {% endif %} {% if personalizacoes.titulo_home %}
+        <h2 class="titulo-home mb-3">{{ personalizacoes.titulo_home }}</h2>
+        {% else %}
+        <h2 class="titulo-home mb-3">JMcars</h2>
+        {% endif %} {% if personalizacoes.descricao_home %}
         <p class="short-descricao different-width mb-10">
-          {{ home.descricao_home }}
+          {{ personalizacoes.descricao_home }}
         </p>
         {% endif %}
         <div class="button-wrap">
@@ -281,7 +295,7 @@
     </div>
     <div class="banner-area section-space-top-100">
       <div class="container">
-        <div class="row">
+        <div class="row categorias-home">
           {% for categoria in categorias %} {% if categoria.imagem_categoria %}
           <div
             class="col-lg-4 col-md-6 mt-3 mb-3"
@@ -291,7 +305,7 @@
             <div class="banner-item img-hover-effect">
               <div class="banner-img img-zoom-effect">
                 <img
-                  class="img-full"
+                  class="img-full imagem-categoria"
                   src="{{ categoria.imagem_categoria.url }}"
                   alt="Banner Image"
                 />
@@ -330,10 +344,12 @@
                   />
                 </div>
                 <div class="shipping-content">
-                  <h2 class="title">{{ home.titulo_quadrado_grande_um }}</h2>
-                  {% if home.descricao_quadrado_grande_um %}
+                  <h2 class="title">
+                    {{ personalizacoes.titulo_quadrado_grande_um }}
+                  </h2>
+                  {% if personalizacoes.descricao_quadrado_grande_um %}
                   <p class="short-desc mb-0">
-                    {{ home.descricao_quadrado_grande_um }}
+                    {{ personalizacoes.descricao_quadrado_grande_um }}
                   </p>
                   {% endif %}
                 </div>
@@ -348,10 +364,12 @@
                   />
                 </div>
                 <div class="shipping-content">
-                  <h2 class="title">{{ home.titulo_quadrado_grande_dois }}</h2>
-                  {% if home.descricao_quadrado_grande_dois %}
+                  <h2 class="title">
+                    {{ personalizacoes.titulo_quadrado_grande_dois }}
+                  </h2>
+                  {% if personalizacoes.descricao_quadrado_grande_dois %}
                   <p class="short-desc mb-0">
-                    {{ home.descricao_quadrado_grande_dois }}
+                    {{ personalizacoes.descricao_quadrado_grande_dois }}
                   </p>
                   {% endif %}
                 </div>
@@ -366,10 +384,12 @@
                   />
                 </div>
                 <div class="shipping-content">
-                  <h2 class="title">{{ home.titulo_quadrado_grande_tres }}</h2>
-                  {% if home.descricao_quadrado_grande_tres %}
+                  <h2 class="title">
+                    {{ personalizacoes.titulo_quadrado_grande_tres }}
+                  </h2>
+                  {% if personalizacoes.descricao_quadrado_grande_tres %}
                   <p class="short-desc mb-0">
-                    {{ home.descricao_quadrado_grande_tres }}
+                    {{ personalizacoes.descricao_quadrado_grande_tres }}
                   </p>
                   {% endif %}
                 </div>
@@ -471,5 +491,5 @@
   </div>
   <!-- Product Area End Here -->
 
-  {% endfor %} {% endblock %}
+  {% endblock %}
 </div>

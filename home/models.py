@@ -6,11 +6,11 @@ class Home(models.Model):
     nome_home = models.CharField(
         max_length=50, verbose_name='Página',  blank=False, null=False, default='Home')
     titulo_home = models.CharField(
-        max_length=7, verbose_name='Título',  blank=False, null=False, default=None)
+        max_length=15, verbose_name='Título',  blank=True, null=True, default=None)
     subtitulo_home = models.CharField(
         max_length=30, verbose_name='Subtítulo',  blank=True, null=True, default=None)
     descricao_home = models.TextField(
-        max_length=35, verbose_name='Descrição', blank=True, null=True, default=None)
+        max_length=65, verbose_name='Descrição', blank=True, null=True, default=None)
     publicado_home = models.BooleanField(
         verbose_name='Publicado', default=False)
     imagem_home = models.ImageField(

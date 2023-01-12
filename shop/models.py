@@ -8,7 +8,7 @@ class Shop(models.Model):
     nome_shop = models.CharField(
         max_length=50, verbose_name='Página',  blank=False, null=False, default='About')
     titulo_shop = models.CharField(
-        max_length=50, verbose_name='Título',  blank=False, null=False, default=None)
+        max_length=40, verbose_name='Título',  blank=True, null=True, default=None)
     imagem_shop = models.ImageField(
         upload_to='imagens_shop/imagens_background', blank=True, null=True, default=None, verbose_name='Background (1920x400)')
     publicado_shop = models.BooleanField(
@@ -34,7 +34,7 @@ class Car(models.Model):
     quilometragem = models.PositiveIntegerField(
         verbose_name='Quilometragem', blank=False, null=False)
     motorizacao = models.CharField(
-        max_length=50, verbose_name='Motorização', default=None)
+        max_length=20, verbose_name='Motorização', default=None)
     cambio = models.ForeignKey(
         Cambio, on_delete=models.DO_NOTHING, blank=False, null=False, verbose_name='Câmbio')
     preco = models.FloatField(verbose_name='Preço',
