@@ -27,9 +27,9 @@ class Home(models.Model):
 class QualidadesHome(models.Model):
 
     nome_qualidade = models.CharField(
-        max_length=50, verbose_name='Qualidade', blank=False, null=False, default='')
+        max_length=20, verbose_name='Qualidade', blank=False, null=False, default='')
     descricao_qualidade = models.TextField(
-        max_length=100, verbose_name='Descrição da qualidade', blank=True, null=True, default=None)
+        max_length=70, verbose_name='Descrição da qualidade', blank=True, null=True, default=None)
     publicado_qualidade = models.BooleanField(
         verbose_name='Publicado', default=False)
     icon_qualidade = models.ImageField(upload_to='imagens_home/icon_qualidades',

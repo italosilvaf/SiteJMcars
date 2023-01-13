@@ -20,21 +20,29 @@
     justify-content: center;
   }
 
+  /*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+
   .qualidade-home {
     justify-content: center;
     background-color: #e8e8e8;
+    margin: 10px;
   }
 
   .qualidade-home-item {
     width: 350px;
     height: 150px;
-    background-color: #e8e8e8;
     padding: 10px;
     margin: 15px;
   }
 
   .qualidade-home-item-ajuste {
-    align-items: flex-start;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .qualidade-home-moldura-icon {
+    width: 80px;
   }
 
   .qualidade-home-icon {
@@ -42,13 +50,11 @@
     height: 75px;
   }
 
+  /*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+
   .imagem-categoria {
     max-width: 400px;
     max-height: 250px;
-  }
-
-  .icone-quadrado-grande {
-    width: 80px;
   }
 
   .quadrado-item {
@@ -141,6 +147,12 @@
     }
   }
 
+  @media (max-device-width: 1599px) and (min-device-width: 1200px) {
+    .qualidade-home {
+      margin: 0px;
+    }
+  }
+
   @media (max-device-width: 1199px) and (min-device-width: 992px) {
     .quadrado-item {
       width: 280px;
@@ -157,7 +169,19 @@
     }
   }
 
+  @media (max-device-width: 991px) and (min-device-width: 768px) {
+    .qualidade-home-item {
+      width: 500px;
+      height: 150px;
+    }
+  }
+
   @media (max-device-width: 767px) and (min-device-width: 576px) {
+    .qualidade-home-item {
+      width: 450px;
+      height: 200px;
+    }
+
     .quadrado-item {
       width: 245px;
       height: 350px;
@@ -187,6 +211,11 @@
   }
 
   @media (max-device-width: 575px) and (min-device-width: 486px) {
+    .qualidade-home-item {
+      width: 450px;
+      height: 200px;
+    }
+
     .quadrado-item {
       width: 300px;
       height: 400px;
@@ -216,6 +245,11 @@
   }
 
   @media (max-device-width: 485px) and (min-device-width: 360px) {
+    .qualidade-home-item {
+      width: 450px;
+      height: 200px;
+    }
+
     .quadrado-item {
       width: 245px;
       height: 350px;
@@ -240,6 +274,11 @@
   }
 
   @media (max-device-width: 360px) {
+    .qualidade-home-item {
+      width: 450px;
+      height: 210px;
+    }
+
     .quadrado-item {
       width: 210px;
       height: 335px;
@@ -356,7 +395,7 @@
           {% for qualidade in qualidades %}
           <div class="col-lg-4 qualidade-home-item">
             <div class="shipping-item qualidade-home-item-ajuste">
-              <div class="shipping-img icone-quadrado-grande">
+              <div class="shipping-img qualidade-home-moldura-icon">
                 <img
                   class="qualidade-home-icon"
                   src="{{ qualidade.icon_qualidade.url }}"
