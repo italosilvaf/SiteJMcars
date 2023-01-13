@@ -32,8 +32,8 @@ class QualidadesHome(models.Model):
         max_length=70, verbose_name='Descrição da qualidade', blank=True, null=True, default=None)
     publicado_qualidade = models.BooleanField(
         verbose_name='Publicado', default=False)
-    icon_qualidade = models.ImageField(upload_to='imagens_home/icon_qualidades',
-                                       blank=False, verbose_name='Icon (75x75)', null=False, default=None)
+    icon_qualidade = models.ImageField(
+        upload_to='imagens_home/icon_qualidades', blank=False, verbose_name='Icon (75x75)', null=False, default=None)
 
     def __str__(self):
         return self.nome_qualidade

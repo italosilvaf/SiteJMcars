@@ -8,7 +8,7 @@ class Index(View):
 
     def get(self, *args, **kwargs):
         personalizacoes = About.objects.filter(
-            publicado_about=True).order_by('-id')[:1]
+            publicado_about=True).order_by('-id').first()
         funcionarios = Funcionario.objects.filter(
             publicado=True).order_by('-id')
         categorias = Categoria.objects.all()
