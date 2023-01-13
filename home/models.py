@@ -15,18 +15,6 @@ class Home(models.Model):
         verbose_name='Publicado', default=False)
     imagem_home = models.ImageField(
         upload_to='imagens_home', blank=True, null=True, verbose_name='Background (1920x803)', default=None)
-    titulo_quadrado_grande_um = models.CharField(
-        max_length=50, verbose_name='Título 1 do quadrado grande ', blank=False, null=False, default=' ')
-    descricao_quadrado_grande_um = models.TextField(
-        max_length=100, verbose_name='Descrição 1 do quadrado grande ', blank=True, null=True, default=None)
-    titulo_quadrado_grande_dois = models.CharField(
-        max_length=50, verbose_name='Título 2 do quadrado grande', blank=False, null=False, default=' ')
-    descricao_quadrado_grande_dois = models.TextField(
-        max_length=100, verbose_name='Descrição 2 do quadrado grande ', blank=True, null=True, default=None)
-    titulo_quadrado_grande_tres = models.CharField(
-        max_length=50, verbose_name='Título 3 do quadrado grande', blank=False, null=False, default=' ')
-    descricao_quadrado_grande_tres = models.TextField(
-        max_length=100, verbose_name='Descrição 3 do quadrado grande ', blank=True, null=True, default=None)
 
     def __str__(self):
         return self.nome_home
@@ -34,3 +22,22 @@ class Home(models.Model):
     class Meta:
         verbose_name = 'Presonalização da página Home'
         verbose_name_plural = 'Presonalização da página Home'
+
+
+class QualidadesHome(models.Model):
+
+    nome_qualidade = models.CharField(
+        max_length=50, verbose_name='Qualidade', blank=False, null=False, default='')
+    descricao_qualidade = models.TextField(
+        max_length=100, verbose_name='Descrição da qualidade', blank=True, null=True, default=None)
+    publicado_qualidade = models.BooleanField(
+        verbose_name='Publicado', default=False)
+    icon_qualidade = models.ImageField(upload_to='imagens_home/icon_qualidades',
+                                       blank=False, verbose_name='Icon (75x75)', null=False, default=None)
+
+    def __str__(self):
+        return self.nome_qualidade
+
+    class Meta:
+        verbose_name = 'Qualidade'
+        verbose_name_plural = 'Qualidades'

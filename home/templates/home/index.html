@@ -20,6 +20,28 @@
     justify-content: center;
   }
 
+  .qualidade-home {
+    justify-content: center;
+    background-color: #e8e8e8;
+  }
+
+  .qualidade-home-item {
+    width: 350px;
+    height: 150px;
+    background-color: #e8e8e8;
+    padding: 10px;
+    margin: 15px;
+  }
+
+  .qualidade-home-item-ajuste {
+    align-items: flex-start;
+  }
+
+  .qualidade-home-icon {
+    width: 75px;
+    height: 75px;
+  }
+
   .imagem-categoria {
     max-width: 400px;
     max-height: 250px;
@@ -330,72 +352,28 @@
     <!-- Begin Shipping Area -->
     <div class="shipping-area section-space-y-axis-100">
       <div class="container" data-aos="fade-up" data-aos-duration="1000">
-        <div
-          class="shipping-bg"
-          data-bg-image="{% static 'tromic/assets/images/shipping/bg/1-1-1280x202.jpg' %}"
-        >
-          <div class="row shipping-wrap py-5 py-xl-0">
-            <div class="col-lg-4">
-              <div class="shipping-item">
-                <div class="shipping-img icone-quadrado-grande">
-                  <img
-                    src="{% static 'tromic/assets/images/shipping/icon/atendimento.png' %}"
-                    alt="Shipping Icon"
-                  />
-                </div>
-                <div class="shipping-content">
-                  <h2 class="title">
-                    {{ personalizacoes.titulo_quadrado_grande_um }}
-                  </h2>
-                  {% if personalizacoes.descricao_quadrado_grande_um %}
-                  <p class="short-desc mb-0">
-                    {{ personalizacoes.descricao_quadrado_grande_um }}
-                  </p>
-                  {% endif %}
-                </div>
+        <div class="row shipping-wrap py-5 py-xl-0 qualidade-home">
+          {% for qualidade in qualidades %}
+          <div class="col-lg-4 qualidade-home-item">
+            <div class="shipping-item qualidade-home-item-ajuste">
+              <div class="shipping-img icone-quadrado-grande">
+                <img
+                  class="qualidade-home-icon"
+                  src="{{ qualidade.icon_qualidade.url }}"
+                  alt="Shipping Icon"
+                />
               </div>
-            </div>
-            <div class="col-lg-4 pt-4 pt-lg-0">
-              <div class="shipping-item">
-                <div class="shipping-img icone-quadrado-grande">
-                  <img
-                    src="{% static 'tromic/assets/images/shipping/icon/preço.png' %}"
-                    alt="Shipping Icon"
-                  />
-                </div>
-                <div class="shipping-content">
-                  <h2 class="title">
-                    {{ personalizacoes.titulo_quadrado_grande_dois }}
-                  </h2>
-                  {% if personalizacoes.descricao_quadrado_grande_dois %}
-                  <p class="short-desc mb-0">
-                    {{ personalizacoes.descricao_quadrado_grande_dois }}
-                  </p>
-                  {% endif %}
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 pt-4 pt-lg-0">
-              <div class="shipping-item">
-                <div class="shipping-img icone-quadrado-grande">
-                  <img
-                    src="{% static 'tromic/assets/images/shipping/icon/segurança.png' %}"
-                    alt="Shipping Icon"
-                  />
-                </div>
-                <div class="shipping-content">
-                  <h2 class="title">
-                    {{ personalizacoes.titulo_quadrado_grande_tres }}
-                  </h2>
-                  {% if personalizacoes.descricao_quadrado_grande_tres %}
-                  <p class="short-desc mb-0">
-                    {{ personalizacoes.descricao_quadrado_grande_tres }}
-                  </p>
-                  {% endif %}
-                </div>
+              <div class="shipping-content">
+                <h2 class="title">{{ qualidade.nome_qualidade }}</h2>
+                {% if qualidade.descricao_qualidade %}
+                <p class="short-desc mb-0">
+                  {{ qualidade.descricao_qualidade }}
+                </p>
+                {% endif %}
               </div>
             </div>
           </div>
+          {% endfor %}
         </div>
       </div>
     </div>
