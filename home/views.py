@@ -10,7 +10,8 @@ class Index(View):
     def get(self, *args, **kwargs):
         personalizacoes = Home.objects.filter(
             publicado_home=True).order_by('-id').first()
-        cars = Car.objects.filter(publicado=True).order_by('-id')[:5]
+        cars = Car.objects.filter(
+            publicado=True, destaque=True).order_by('-id')
         categorias = Categoria.objects.all()
         qualidades = QualidadesHome.objects.filter(
             publicado_qualidade=True)

@@ -45,6 +45,8 @@ class Car(models.Model):
         verbose_name='Opcionais', blank=True, null=True)
     publicado = models.BooleanField(
         verbose_name='Publicado', default=False)
+    destaque = models.BooleanField(
+        verbose_name='Destaque', default=False)
 
     def get_preco_formatado(self):
         return utils.formata_preco_admin(self.preco)
