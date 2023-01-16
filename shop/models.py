@@ -68,6 +68,10 @@ class ImagesCar(models.Model):
     imagem = models.ImageField(
         upload_to='imagens_shop/imagens_carros', blank=False, null=False, default=None, verbose_name='Imagem')
 
+    def __str__(self):
+        self.nome_imagem = ''
+        return self.nome_imagem
+
     class Meta:
         verbose_name = 'Imagem'
         verbose_name_plural = 'Imagens'
