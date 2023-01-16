@@ -20,8 +20,6 @@
     justify-content: center;
   }
 
-  /*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
-
   .qualidade-home {
     justify-content: center;
     background-color: #e8e8e8;
@@ -49,8 +47,6 @@
     width: 75px;
     height: 75px;
   }
-
-  /*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
 
   .imagem-categoria {
     max-width: 400px;
@@ -455,11 +451,13 @@
                       class="product-img img-zoom-effect tamanho-bloco-imagem"
                     >
                       <a href="{% url 'carro_detalhes' car.id %}">
+                        {% for img in car.imagescar_set.all %}
                         <img
                           class="tamanho-imagem"
-                          src="{{ car.imagem_1.url }}"
+                          src="{{ img.imagem.url }}"
                           alt="Product Images"
                         />
+                        {% endfor %}
                       </a>
                     </div>
                     <div class="container-informações">

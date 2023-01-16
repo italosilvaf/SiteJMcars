@@ -45,46 +45,6 @@ class Car(models.Model):
         verbose_name='Opcionais', blank=True, null=True)
     publicado = models.BooleanField(
         verbose_name='Publicado', default=False)
-    imagem_1 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=False, null=False, default=None, verbose_name='Imagem 1 (Capa)')
-    imagem_2 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 2', default=None)
-    imagem_3 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 3', default=None)
-    imagem_4 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 4', default=None)
-    imagem_5 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 5', default=None)
-    imagem_6 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 6', default=None)
-    imagem_7 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 7', default=None)
-    imagem_8 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 8', default=None)
-    imagem_9 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 9', default=None)
-    imagem_10 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 10', default=None)
-    imagem_11 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 11', default=None)
-    imagem_12 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 12', default=None)
-    imagem_13 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 13', default=None)
-    imagem_14 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 14', default=None)
-    imagem_15 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 15', default=None)
-    imagem_16 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 16', default=None)
-    imagem_17 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 17', default=None)
-    imagem_18 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 18', default=None)
-    imagem_19 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 19', default=None)
-    imagem_20 = models.ImageField(
-        upload_to='imagens_shop/imagens_carros', blank=True, null=True, verbose_name='Imagem 20', default=None)
 
     def get_preco_formatado(self):
         return utils.formata_preco_admin(self.preco)
@@ -100,3 +60,14 @@ class Car(models.Model):
     class Meta:
         verbose_name = 'Carro'
         verbose_name_plural = 'Carros'
+
+
+class ImagesCar(models.Model):
+
+    carro = models.ForeignKey(Car, on_delete=models.CASCADE)
+    imagem = models.ImageField(
+        upload_to='imagens_shop/imagens_carros', blank=False, null=False, default=None, verbose_name='Imagem')
+
+    class Meta:
+        verbose_name = 'Imagem'
+        verbose_name_plural = 'Imagens'

@@ -318,11 +318,13 @@
                 <div class="sombra-itens-grid-list container-grid" data-aos="fade-up" data-aos-duration="1000">
                   <div class="img-zoom-effect tamanho-bloco-imagem-grid">
                     <a href="{% url 'carro_detalhes' car.id %}">
+                      {% for img in car.imagescar_set.all %}
                       <img
                         class="tamanho-imagem-grid"
-                        src="{{ car.imagem_1.url }}"
+                        src="{{ img.imagem.url }}"
                         alt="Product Images"
                       />
+                      {% endfor %}
                     </a>
                   </div>
                   <div class="container-informações">
@@ -363,11 +365,13 @@
                       class=" img-zoom-effect tamanho-bloco-imagem-list "
                     >
                       <a href="{% url 'carro_detalhes' car.id %}">
+                        {% for img in car.imagescar_set.all %}
                         <img
                           class="tamanho-imagem-list"
-                          src="{{ car.imagem_1.url }}"
+                          src="{{ img.imagem.url }}"
                           alt="Product Images"
                         />
+                        {% endfor %}
                       </a>
                     </div>
                     <div class="product-list-content inf conatiner-informacoes-lista">
