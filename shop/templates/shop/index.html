@@ -262,7 +262,7 @@
                   {% for categoria in categorias %}
                   <li>
                     <a href="{% url 'carro_categorias' categoria.nome_categoria %}"
-                      >{{ categoria.nome_categoria }}
+                      >{{ categoria.nome_categoria }} ({{categoria|contar_carros_categoria}})
                     </a>
                   </li>
                   {% endfor %}

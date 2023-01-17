@@ -1,5 +1,6 @@
 from django.template import Library
 from utils import utils
+from ..models import Car
 
 register = Library()
 
@@ -17,3 +18,12 @@ def formata_preco_admin(valor):
 @register.filter
 def formata_quilometragem(valor):
     return utils.formata_quilometragem(valor)
+
+
+@register.filter
+def contar_carros_categoria(cat):
+    contagem = len(Car.objects.filter(
+        categoria_carro__nome_categoria__iexact=cat, publicado=True
+    )
+    )
+    return contagem
