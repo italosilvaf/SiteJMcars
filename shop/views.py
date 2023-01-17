@@ -28,7 +28,7 @@ class CarView(ListView):
             return qs
 
         qs = qs.filter(
-            categoria_carro__nome_categoria__iexact=categoria).order_by('-id')
+            categoria_carro__nome_categoria__iexact=categoria, publicado=True).order_by('-id')
         return qs
 
 
