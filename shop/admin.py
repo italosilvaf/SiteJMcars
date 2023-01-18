@@ -15,7 +15,7 @@ class ImagesCarInline(admin.TabularInline):
 
 
 class CarAdmin(SummernoteModelAdmin):
-    list_display = ('id',  'modelo', 'cor', 'ano',
+    list_display = ('id',  'modelo', 'ano',
                     'get_quilometragem_formatado', 'get_preco_formatado', 'publicado')
     list_display_links = ('id', 'modelo')
     list_editable = ('publicado',)

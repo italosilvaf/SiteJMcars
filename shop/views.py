@@ -2,7 +2,7 @@ from django.views.generic import ListView, DetailView
 from django.db.models import Q
 from .models import Shop
 from .models import Car
-from categories.models import Categoria, Cor, Marca, Cambio
+from categories.models import EstadoDeConservacao, Categoria, Cor, Marca, Cambio
 
 
 class CarView(ListView):
@@ -15,6 +15,7 @@ class CarView(ListView):
         context = super().get_context_data(**kwargs)
         context['personalizacoes'] = Shop.objects.filter(
             publicado_shop=True).order_by('-id').first()
+        context['estados_de_conservacao'] = EstadoDeConservacao.objects.all()
         context['categorias'] = Categoria.objects.all()
         context['marcas'] = Marca.objects.all()
         context['cores'] = Cor.objects.all()

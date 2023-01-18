@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import View
 from .models import About, Funcionario
-from categories.models import Categoria
+from categories.models import EstadoDeConservacao
 
 
 class Index(View):
@@ -11,12 +11,12 @@ class Index(View):
             publicado_about=True).order_by('-id').first()
         funcionarios = Funcionario.objects.filter(
             publicado=True).order_by('-id')
-        categorias = Categoria.objects.all()
+        estados_de_conservacao = EstadoDeConservacao.objects.all()
 
         context = {
             'personalizacoes': personalizacoes,
             'funcionarios': funcionarios,
-            'categorias': categorias,
+            'estados_de_conservacao': estados_de_conservacao,
         }
 
         return render(self.request, 'about/index.html', context)

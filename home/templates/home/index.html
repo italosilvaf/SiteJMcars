@@ -16,7 +16,7 @@
     line-height: 30px;
   }
 
-  .categorias-home {
+  .estados_de_conservacao-home {
     justify-content: center;
   }
 
@@ -48,7 +48,7 @@
     height: 75px;
   }
 
-  .imagem-categoria {
+  .imagem-estado_de_conservacao {
     max-width: 400px;
     max-height: 250px;
   }
@@ -352,8 +352,10 @@
     </div>
     <div class="banner-area section-space-top-100">
       <div class="container">
-        <div class="row categorias-home">
-          {% for categoria in categorias %} {% if categoria.imagem_categoria %}
+        <div class="row estados_de_conservacao-home">
+          {% for estado_de_conservacao in estados_de_conservacao %}
+          <td></td>
+          {% if estado_de_conservacao.imagem_estado_de_conservacao %}
           <div
             class="col-lg-4 col-md-6 mt-3 mb-3"
             data-aos="flip-left"
@@ -362,16 +364,16 @@
             <div class="banner-item img-hover-effect">
               <div class="banner-img img-zoom-effect">
                 <img
-                  class="img-full imagem-categoria"
-                  src="{{ categoria.imagem_categoria.url }}"
+                  class="img-full imagem-estado_de_conservacao"
+                  src="{{ estado_de_conservacao.imagem_estado_de_conservacao.url }}"
                   alt="Banner Image"
                 />
                 <div class="inner-content text-white">
-                  <h2 class="title mb-5">{{ categoria.nome_categoria }}</h2>
+                  <h2 class="title mb-5">
+                    {{ estado_de_conservacao.nome_estado_de_conservacao }}
+                  </h2>
                   <div class="button-wrap">
-                    <a
-                      class="btn btn-custom-size btn-primary"
-                      href="{% url 'carro_categorias' categoria.nome_categoria %}"
+                    <a class="btn btn-custom-size btn-primary" href="#"
                       >VER MODELOS</a
                     >
                   </div>

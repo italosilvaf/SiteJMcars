@@ -257,14 +257,14 @@
           </div>
           <form id="widgets-checkbox-form" action="{% url 'carro_filtro' %}" method="GET">
             <div class="widgets-area mb-9">
-              <h2 class="widgets-title mb-5">Categorias</h2>
+              <h2 class="widgets-title mb-5">Estados de Conservação</h2>
               <div class="widgets-item">
                   <ul class="widgets-checkbox">
-                      {% for categoria in categorias %}
+                      {% for estado_de_conservacao in estados_de_conservacao %}
                       <li>
-                          <input class="input-checkbox" type="checkbox" id="categoria-{{ categoria.id }}" name="filtro-estados_de_conservacao" value="{{ categoria.nome_categoria }}">
-                          <label class="label-checkbox mb-0" for="categoria-{{ categoria.id }}">
-                            {{ categoria.nome_categoria }}
+                          <input class="input-checkbox" type="checkbox" id="estado_de_conservacao-{{ estado_de_conservacao.id }}" name="filtro-estados_de_conservacao" value="{{ estado_de_conservacao.nome_estado_de_conservacao }}">
+                          <label class="label-checkbox mb-0" for="estado_de_conservacao-{{ estado_de_conservacao.id }}">
+                            {{ estado_de_conservacao.nome_estado_de_conservacao }}
                           </label>
                       </li>
                       {% endfor %}
