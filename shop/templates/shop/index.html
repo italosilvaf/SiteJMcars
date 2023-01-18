@@ -269,6 +269,25 @@
                 </ul>
               </div>
             </div>
+            <form id="widgets-checkbox-form" action="{% url 'carro_filtro' %}" method="GET">
+              <div class="widgets-area mb-9">
+                <h2 class="widgets-title mb-5">Cores</h2>
+                <div class="widgets-item">
+                  <ul class="widgets-checkbox">
+                    {% for cor in cores %}
+                    <li>
+                        <input class="input-checkbox" type="checkbox" id="color-selection-{{ cor.id }}" name="filtro" value="{{ cor.nome_cor }}">
+        
+                        <label class="label-checkbox mb-0" for="color-selection-{{ cor.id }}">
+                          {{ cor.nome_cor }}
+                        </label>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+              <input type="submit" class="btn btn-custom-size lg-size btn-primary w-100 mb-5" value="Filtrar">
+            </form>
           </div>
         </div>
         <div class="col-xl-9 col-lg-8 order-lg-2 order-1">

@@ -2,7 +2,7 @@ from django.views.generic import ListView, DetailView
 from django.db.models import Q
 from .models import Shop
 from .models import Car
-from categories.models import Categoria
+from categories.models import Categoria, Cor
 
 
 class CarView(ListView):
@@ -16,6 +16,7 @@ class CarView(ListView):
         context['personalizacoes'] = Shop.objects.filter(
             publicado_shop=True).order_by('-id').first()
         context['categorias'] = Categoria.objects.all()
+        context['cores'] = Cor.objects.all()
 
         return context
 
@@ -57,5 +58,27 @@ class CarroBusca(CarView):
             Q(cambio__nome_cambio__icontains=termo) |
             Q(categoria_carro__nome_categoria__icontains=termo)
         )
+
+        return qs
+
+
+class CarroFiltro(CarView):
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        cores_selecionadas = self.request.GET.getlist('filtro')
+        lista_de_cores = []
+        filtro = Q()
+
+        for cor_selecionada in cores_selecionadas:
+            if cor_selecionada is not None:
+                lista_de_cores.append(cor_selecionada)
+
+        for cor in lista_de_cores:
+            filtro |= Q(cor__nome_cor__icontains=cor)
+
+        print(filtro)
+
+        qs = qs.filter(filtro)
 
         return qs
