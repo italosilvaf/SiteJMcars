@@ -2,7 +2,7 @@ from django.views.generic import ListView, DetailView
 from django.db.models import Q
 from .models import Shop
 from .models import Car
-from categories.models import Categoria, Cor
+from categories.models import Categoria, Cor, Marca, Cambio
 
 
 class CarView(ListView):
@@ -16,7 +16,9 @@ class CarView(ListView):
         context['personalizacoes'] = Shop.objects.filter(
             publicado_shop=True).order_by('-id').first()
         context['categorias'] = Categoria.objects.all()
+        context['marcas'] = Marca.objects.all()
         context['cores'] = Cor.objects.all()
+        context['cambios'] = Cambio.objects.all()
 
         return context
 
@@ -66,19 +68,36 @@ class CarroFiltro(CarView):
 
     def get_queryset(self):
         qs = super().get_queryset()
-        cores_selecionadas = self.request.GET.getlist('filtro')
+        filtro = []
+
+        # Filtro Marcas
+        marcas_selecionadas = self.request.GET.getlist('filtro-marcas')
+        lista_de_marcas = []
+        filtro_marcas = Q()
+
+        for marca_selecionadas in marcas_selecionadas:
+            if marca_selecionadas is not None:
+                lista_de_marcas.append(marca_selecionadas)
+
+        for marca in lista_de_marcas:
+            filtro_marcas |= Q(marca__nome_marca__icontains=marca)
+
+        # Filtro Cores
+        cores_selecionadas = self.request.GET.getlist('filtro-cores')
         lista_de_cores = []
-        filtro = Q()
+        filtro_cores = Q()
 
         for cor_selecionada in cores_selecionadas:
             if cor_selecionada is not None:
                 lista_de_cores.append(cor_selecionada)
 
         for cor in lista_de_cores:
-            filtro |= Q(cor__nome_cor__icontains=cor)
+            filtro_cores |= Q(cor__nome_cor__icontains=cor)
 
-        print(filtro)
+        # Junção dos Filtros
+        filtro.append(filtro_cores)
+        filtro.append(filtro_marcas)
 
-        qs = qs.filter(filtro)
+        qs = qs.filter(*filtro)
 
         return qs
