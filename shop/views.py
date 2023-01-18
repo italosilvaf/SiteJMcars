@@ -94,9 +94,22 @@ class CarroFiltro(CarView):
         for cor in lista_de_cores:
             filtro_cores |= Q(cor__nome_cor__icontains=cor)
 
+        # Filtro Câmbios
+        cambios_selecionados = self.request.GET.getlist('filtro-cambios')
+        lista_de_cambios = []
+        filtro_cambios = Q()
+
+        for cambio_selecionado in cambios_selecionados:
+            if cambio_selecionado is not None:
+                lista_de_cambios.append(cambio_selecionado)
+
+        for cambio in lista_de_cambios:
+            filtro_cambios |= Q(cambio__nome_cambio__icontains=cambio)
+
         # Junção dos Filtros
         filtro.append(filtro_cores)
         filtro.append(filtro_marcas)
+        filtro.append(filtro_cambios)
 
         qs = qs.filter(*filtro)
 
