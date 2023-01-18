@@ -70,6 +70,21 @@ class CarroFiltro(CarView):
         qs = super().get_queryset()
         filtro = []
 
+        # Filtro Estado de Conservação
+        estados_de_conservacao_selecionadas = self.request.GET.getlist(
+            'filtro-estados_de_conservacao')
+        lista_de_estados_de_conservacaos = []
+        filtro_estados_de_conservacao = Q()
+
+        for estado_de_conservacao_selecionadas in estados_de_conservacao_selecionadas:
+            if estado_de_conservacao_selecionadas is not None:
+                lista_de_estados_de_conservacaos.append(
+                    estado_de_conservacao_selecionadas)
+
+        for estado_de_conservacao in lista_de_estados_de_conservacaos:
+            filtro_estados_de_conservacao |= Q(
+                categoria_carro__nome_categoria=estado_de_conservacao)
+
         # Filtro Marcas
         marcas_selecionadas = self.request.GET.getlist('filtro-marcas')
         lista_de_marcas = []
@@ -80,7 +95,7 @@ class CarroFiltro(CarView):
                 lista_de_marcas.append(marca_selecionadas)
 
         for marca in lista_de_marcas:
-            filtro_marcas |= Q(marca__nome_marca__icontains=marca)
+            filtro_marcas |= Q(marca__nome_marca=marca)
 
         # Filtro Cores
         cores_selecionadas = self.request.GET.getlist('filtro-cores')
@@ -92,7 +107,7 @@ class CarroFiltro(CarView):
                 lista_de_cores.append(cor_selecionada)
 
         for cor in lista_de_cores:
-            filtro_cores |= Q(cor__nome_cor__icontains=cor)
+            filtro_cores |= Q(cor__nome_cor=cor)
 
         # Filtro Câmbios
         cambios_selecionados = self.request.GET.getlist('filtro-cambios')
@@ -104,9 +119,10 @@ class CarroFiltro(CarView):
                 lista_de_cambios.append(cambio_selecionado)
 
         for cambio in lista_de_cambios:
-            filtro_cambios |= Q(cambio__nome_cambio__icontains=cambio)
+            filtro_cambios |= Q(cambio__nome_cambio=cambio)
 
         # Junção dos Filtros
+        filtro.append(filtro_estados_de_conservacao)
         filtro.append(filtro_cores)
         filtro.append(filtro_marcas)
         filtro.append(filtro_cambios)

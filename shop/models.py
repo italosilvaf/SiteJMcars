@@ -26,6 +26,8 @@ class Car(models.Model):
 
     modelo = models.CharField(
         max_length=100, verbose_name='Modelo', default=None)
+    categoria_carro = models.ForeignKey(
+        Categoria, on_delete=models.DO_NOTHING, blank=False, null=False, verbose_name='Categoria')
     marca = models.ForeignKey(
         Marca, on_delete=models.DO_NOTHING, blank=False, null=False, verbose_name='Marca')
     ano = models.CharField(max_length=9, verbose_name='Ano', default=None)
@@ -39,8 +41,6 @@ class Car(models.Model):
         Cambio, on_delete=models.DO_NOTHING, blank=False, null=False, verbose_name='Câmbio')
     preco = models.FloatField(verbose_name='Preço',
                               default='0', blank=False, null=False)
-    categoria_carro = models.ForeignKey(
-        Categoria, on_delete=models.DO_NOTHING, blank=False, null=False, verbose_name='Categoria')
     opcionais = models.TextField(
         verbose_name='Opcionais', blank=True, null=True)
     publicado = models.BooleanField(

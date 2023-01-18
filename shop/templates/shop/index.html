@@ -255,69 +255,70 @@
               >Limpar pesquisa e filtros</a
             >
           </div>
+          <form id="widgets-checkbox-form" action="{% url 'carro_filtro' %}" method="GET">
             <div class="widgets-area mb-9">
               <h2 class="widgets-title mb-5">Categorias</h2>
               <div class="widgets-item">
-                <ul class="widgets-category">
-                  {% for categoria in categorias %}
+                  <ul class="widgets-checkbox">
+                      {% for categoria in categorias %}
+                      <li>
+                          <input class="input-checkbox" type="checkbox" id="categoria-{{ categoria.id }}" name="filtro-estados_de_conservacao" value="{{ categoria.nome_categoria }}">
+                          <label class="label-checkbox mb-0" for="categoria-{{ categoria.id }}">
+                            {{ categoria.nome_categoria }}
+                          </label>
+                      </li>
+                      {% endfor %}
+                  </ul>
+              </div>
+            </div>
+            <div class="widgets-area mb-9">
+              <h2 class="widgets-title mb-5">Marcas</h2>
+              <div class="widgets-item">
+                  <ul class="widgets-checkbox">
+                      {% for marca in marcas %}
+                      <li>
+                          <input class="input-checkbox" type="checkbox" id="marca-{{ marca.id }}" name="filtro-marcas" value="{{ marca.nome_marca }}">
+                          <label class="label-checkbox mb-0" for="marca-{{ marca.id }}">
+                            {{ marca.nome_marca }}
+                          </label>
+                      </li>
+                      {% endfor %}
+                  </ul>
+              </div>
+            </div>
+            <div class="widgets-area mb-9">
+              <h2 class="widgets-title mb-5">Cores</h2>
+              <div class="widgets-item">
+                <ul class="widgets-checkbox">
+                  {% for cor in cores %}
                   <li>
-                    <a href="{% url 'carro_categorias' categoria.nome_categoria %}"
-                      >{{ categoria.nome_categoria }} ({{categoria|contar_carros_categoria}})
-                    </a>
+                      <input class="input-checkbox" type="checkbox" id="cor-{{ cor.id }}" name="filtro-cores" value="{{ cor.nome_cor }}">
+                      <label class="label-checkbox mb-0" for="cor-{{ cor.id }}">
+                        {{ cor.nome_cor }}
+                      </label>
                   </li>
                   {% endfor %}
                 </ul>
               </div>
             </div>
-            <form id="widgets-checkbox-form" action="{% url 'carro_filtro' %}" method="GET">
-              <div class="widgets-area mb-9">
-                <h2 class="widgets-title mb-5">Marcas</h2>
-                <div class="widgets-item">
-                    <ul class="widgets-checkbox">
-                        {% for marca in marcas %}
-                        <li>
-                            <input class="input-checkbox" type="checkbox" id="marca-{{ marca.id }}" name="filtro-marcas" value="{{ marca.nome_marca }}">
-                            <label class="label-checkbox mb-0" for="marca-{{ marca.id }}">
-                              {{ marca.nome_marca }}
-                            </label>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
+            <div class="widgets-area mb-9">
+              <h2 class="widgets-title mb-5">Câmbios</h2>
+              <div class="widgets-item">
+                <ul class="widgets-checkbox">
+                  {% for cambio in cambios %}
+                  <li>
+                      <input class="input-checkbox" type="checkbox" id="cambio-{{ cambio.id }}" name="filtro-cambios" value="{{ cambio.nome_cambio }}">
+                      <label class="label-checkbox mb-0" for="cambio-{{ cambio.id }}">
+                        {{ cambio.nome_cambio }}
+                      </label>
+                  </li>
+                  {% endfor %}
+                </ul>
               </div>
-              <div class="widgets-area mb-9">
-                <h2 class="widgets-title mb-5">Cores</h2>
-                <div class="widgets-item">
-                  <ul class="widgets-checkbox">
-                    {% for cor in cores %}
-                    <li>
-                        <input class="input-checkbox" type="checkbox" id="cor-{{ cor.id }}" name="filtro-cores" value="{{ cor.nome_cor }}">
-                        <label class="label-checkbox mb-0" for="cor-{{ cor.id }}">
-                          {{ cor.nome_cor }}
-                        </label>
-                    </li>
-                    {% endfor %}
-                  </ul>
-                </div>
-              </div>
-              <div class="widgets-area mb-9">
-                <h2 class="widgets-title mb-5">Câmbios</h2>
-                <div class="widgets-item">
-                  <ul class="widgets-checkbox">
-                    {% for cambio in cambios %}
-                    <li>
-                        <input class="input-checkbox" type="checkbox" id="cambio-{{ cambio.id }}" name="filtro-cambios" value="{{ cambio.nome_cambio }}">
-                        <label class="label-checkbox mb-0" for="cambio-{{ cambio.id }}">
-                          {{ cambio.nome_cambio }}
-                        </label>
-                    </li>
-                    {% endfor %}
-                  </ul>
-                </div>
-              </div>
-              <input type="submit" class="btn btn-custom-size lg-size btn-primary w-100 mb-5" value="Filtrar">
-            </form>
-          </div>
+            </div>
+            <input type="submit" class="btn btn-custom-size lg-size btn-primary w-100 mb-5" value="Filtrar">
+          </form>
+        </div>
         </div>
         <div class="col-xl-9 col-lg-8 order-lg-2 order-1">
           <div class="product-topbar centro">
