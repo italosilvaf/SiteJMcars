@@ -81,14 +81,28 @@ class CarroFiltro(CarView):
             filtro_estados_de_conservacao |= Q(
                 estado_de_conservacao__nome_estado_de_conservacao=estado_de_conservacao)
 
+        # Filtro Categoria
+        categorias_selecionadas = self.request.GET.getlist(
+            'filtro-categorias')
+        lista_de_categorias = []
+        filtro_categorias = Q()
+
+        for categoria_selecionada in categorias_selecionadas:
+            if categoria_selecionada is not None:
+                lista_de_categorias.append(
+                    categoria_selecionada)
+
+        for categoria in lista_de_categorias:
+            filtro_categorias |= Q(categoria__nome_categoria=categoria)
+
         # Filtro Marcas
         marcas_selecionadas = self.request.GET.getlist('filtro-marcas')
         lista_de_marcas = []
         filtro_marcas = Q()
 
-        for marca_selecionadas in marcas_selecionadas:
-            if marca_selecionadas is not None:
-                lista_de_marcas.append(marca_selecionadas)
+        for marca_selecionada in marcas_selecionadas:
+            if marca_selecionada is not None:
+                lista_de_marcas.append(marca_selecionada)
 
         for marca in lista_de_marcas:
             filtro_marcas |= Q(marca__nome_marca=marca)
@@ -119,6 +133,7 @@ class CarroFiltro(CarView):
 
         # Junção dos Filtros
         filtro.append(filtro_estados_de_conservacao)
+        filtro.append(filtro_categorias)
         filtro.append(filtro_cores)
         filtro.append(filtro_marcas)
         filtro.append(filtro_cambios)

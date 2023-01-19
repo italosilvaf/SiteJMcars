@@ -272,6 +272,21 @@
               </div>
             </div>
             <div class="widgets-area mb-9">
+              <h2 class="widgets-title mb-5">Categorias</h2>
+              <div class="widgets-item">
+                  <ul class="widgets-checkbox">
+                      {% for categoria in categorias %}
+                      <li>
+                          <input class="input-checkbox" type="checkbox" id="categoria-{{ categoria.id }}" name="filtro-categorias" value="{{ categoria.nome_categoria }}">
+                          <label class="label-checkbox mb-0" for="categoria-{{ categoria.id }}">
+                            {{ categoria.nome_categoria }}
+                          </label>
+                      </li>
+                      {% endfor %}
+                  </ul>
+              </div>
+            </div>
+            <div class="widgets-area mb-9">
               <h2 class="widgets-title mb-5">Marcas</h2>
               <div class="widgets-item">
                   <ul class="widgets-checkbox">
