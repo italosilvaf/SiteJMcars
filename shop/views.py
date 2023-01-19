@@ -68,7 +68,7 @@ class CarroFiltro(CarView):
 
         # Filtro Estado de Conservação
         estados_de_conservacao_selecionadas = self.request.GET.getlist(
-            'filtro-estados_de_conservacao')
+            'filtro_estados_de_conservacao')
         lista_de_estados_de_conservacaos = []
         filtro_estados_de_conservacao = Q()
 
@@ -83,7 +83,7 @@ class CarroFiltro(CarView):
 
         # Filtro Categoria
         categorias_selecionadas = self.request.GET.getlist(
-            'filtro-categorias')
+            'filtro_categorias')
         lista_de_categorias = []
         filtro_categorias = Q()
 
@@ -96,7 +96,7 @@ class CarroFiltro(CarView):
             filtro_categorias |= Q(categoria__nome_categoria=categoria)
 
         # Filtro Marcas
-        marcas_selecionadas = self.request.GET.getlist('filtro-marcas')
+        marcas_selecionadas = self.request.GET.getlist('filtro_marcas')
         lista_de_marcas = []
         filtro_marcas = Q()
 
@@ -108,7 +108,7 @@ class CarroFiltro(CarView):
             filtro_marcas |= Q(marca__nome_marca=marca)
 
         # Filtro Cores
-        cores_selecionadas = self.request.GET.getlist('filtro-cores')
+        cores_selecionadas = self.request.GET.getlist('filtro_cores')
         lista_de_cores = []
         filtro_cores = Q()
 
@@ -120,7 +120,7 @@ class CarroFiltro(CarView):
             filtro_cores |= Q(cor__nome_cor=cor)
 
         # Filtro Câmbios
-        cambios_selecionados = self.request.GET.getlist('filtro-cambios')
+        cambios_selecionados = self.request.GET.getlist('filtro_cambios')
         lista_de_cambios = []
         filtro_cambios = Q()
 

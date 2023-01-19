@@ -21,6 +21,7 @@
      border-radius: 5px;
      background-color: #f9f9f9;
   }
+
   /* End Geral */
 
 
@@ -261,7 +262,7 @@
                   <ul class="widgets-checkbox">
                       {% for estado_de_conservacao in estados_de_conservacao %}
                       <li>
-                          <input class="input-checkbox" type="checkbox" id="estado_de_conservacao-{{ estado_de_conservacao.id }}" name="filtro-estados_de_conservacao" value="{{ estado_de_conservacao.nome_estado_de_conservacao }}">
+                          <input class="input-checkbox" type="checkbox" id="estado_de_conservacao-{{ estado_de_conservacao.id }}" name="filtro_estados_de_conservacao" value="{{ estado_de_conservacao.nome_estado_de_conservacao }}">
                           <label class="label-checkbox mb-0" for="estado_de_conservacao-{{ estado_de_conservacao.id }}">
                             {{ estado_de_conservacao.nome_estado_de_conservacao }}
                           </label>
@@ -276,7 +277,7 @@
                   <ul class="widgets-checkbox">
                       {% for categoria in categorias %}
                       <li>
-                          <input class="input-checkbox" type="checkbox" id="categoria-{{ categoria.id }}" name="filtro-categorias" value="{{ categoria.nome_categoria }}">
+                          <input class="input-checkbox" type="checkbox" id="categoria-{{ categoria.id }}" name="filtro_categorias" value="{{ categoria.nome_categoria }}">
                           <label class="label-checkbox mb-0" for="categoria-{{ categoria.id }}">
                             {{ categoria.nome_categoria }}
                           </label>
@@ -291,7 +292,7 @@
                   <ul class="widgets-checkbox">
                       {% for marca in marcas %}
                       <li>
-                          <input class="input-checkbox" type="checkbox" id="marca-{{ marca.id }}" name="filtro-marcas" value="{{ marca.nome_marca }}">
+                          <input class="input-checkbox" type="checkbox" id="marca-{{ marca.id }}" name="filtro_marcas" value="{{ marca.nome_marca }}">
                           <label class="label-checkbox mb-0" for="marca-{{ marca.id }}">
                             {{ marca.nome_marca }}
                           </label>
@@ -306,7 +307,7 @@
                 <ul class="widgets-checkbox">
                   {% for cor in cores %}
                   <li>
-                      <input class="input-checkbox" type="checkbox" id="cor-{{ cor.id }}" name="filtro-cores" value="{{ cor.nome_cor }}">
+                      <input class="input-checkbox" type="checkbox" id="cor-{{ cor.id }}" name="filtro_cores" value="{{ cor.nome_cor }}">
                       <label class="label-checkbox mb-0" for="cor-{{ cor.id }}">
                         {{ cor.nome_cor }}
                       </label>
@@ -321,7 +322,7 @@
                 <ul class="widgets-checkbox">
                   {% for cambio in cambios %}
                   <li>
-                      <input class="input-checkbox" type="checkbox" id="cambio-{{ cambio.id }}" name="filtro-cambios" value="{{ cambio.nome_cambio }}">
+                      <input class="input-checkbox" type="checkbox" id="cambio-{{ cambio.id }}" name="filtro_cambios" value="{{ cambio.nome_cambio }}">
                       <label class="label-checkbox mb-0" for="cambio-{{ cambio.id }}">
                         {{ cambio.nome_cambio }}
                       </label>
@@ -483,7 +484,7 @@
 
           </div>
           <!-- Paginator -->
-          <div class="pagination-area pt-10 paginator">
+          <div class="pagination-area pt-10">
             <ul class="pagination justify-content-end">
               {% if page_obj.has_previous %}
               <li class="page-item">
