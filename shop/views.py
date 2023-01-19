@@ -23,18 +23,6 @@ class CarView(ListView):
 
         return context
 
-    def get_queryset(self):
-        qs = super().get_queryset()
-        categoria = self.kwargs.get('nome_categoria', None)
-
-        if not categoria:
-            qs = qs.filter(publicado=True).order_by('-id')
-            return qs
-
-        qs = qs.filter(
-            categoria_carro__nome_categoria__iexact=categoria, publicado=True).order_by('-id')
-        return qs
-
 
 class CarroDetalhes(DetailView):
     template_name = 'shop/carro_detalhes.html'
@@ -66,7 +54,7 @@ class CarroBusca(CarView):
             Q(quilometragem__icontains=termo) |
             Q(motorizacao__icontains=termo) |
             Q(cambio__nome_cambio__icontains=termo) |
-            Q(categoria_carro__nome_categoria__icontains=termo)
+            Q(categoria__nome_categoria__icontains=termo)
         )
 
         return qs
@@ -91,7 +79,7 @@ class CarroFiltro(CarView):
 
         for estado_de_conservacao in lista_de_estados_de_conservacaos:
             filtro_estados_de_conservacao |= Q(
-                categoria_carro__nome_categoria=estado_de_conservacao)
+                estado_de_conservacao__nome_estado_de_conservacao=estado_de_conservacao)
 
         # Filtro Marcas
         marcas_selecionadas = self.request.GET.getlist('filtro-marcas')
