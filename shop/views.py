@@ -41,6 +41,13 @@ class CarroDetalhes(DetailView):
     model = Car
     context_object_name = 'car'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['estados_de_conservacao'] = EstadoDeConservacao.objects.all()
+        context['categorias'] = Categoria.objects.all()
+
+        return context
+
 
 class CarroBusca(CarView):
 

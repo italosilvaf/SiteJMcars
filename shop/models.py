@@ -28,7 +28,7 @@ class Car(models.Model):
         max_length=100, verbose_name='Modelo', default=None)
     estado_de_conservacao = models.ForeignKey(
         EstadoDeConservacao, on_delete=models.DO_NOTHING, blank=False, null=False, default=None, verbose_name='Estado de Conservacao')
-    categoria_carro = models.ForeignKey(
+    categoria = models.ForeignKey(
         Categoria, on_delete=models.DO_NOTHING, blank=False, null=False, verbose_name='Categoria')
     marca = models.ForeignKey(
         Marca, on_delete=models.DO_NOTHING, blank=False, null=False, verbose_name='Marca')
