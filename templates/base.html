@@ -394,8 +394,8 @@
                     {% for estado_de_conservacao in estados_de_conservacao %}
                     <li>
                       <i class="fa fa-chevron-right"></i>
-                      <a href="#">
-                        {{ estado_de_conservacao.nome_estado_de_conservacao}}
+                      <a href="{% url 'carro_filtro' %}?filtro-estados_de_conservacao={{estado_de_conservacao.nome_estado_de_conservacao }} ">
+                        {{ estado_de_conservacao.nome_estado_de_conservacao }}
                       </a>
                     </li>
                     {% endfor %}
@@ -409,7 +409,7 @@
                     {% for categoria in categorias %}
                     <li>
                       <i class="fa fa-chevron-right"></i>
-                      <a href="#">
+                      <a href="{% url 'carro_filtro' %}?filtro-categorias={{ categoria.nome_categoria }} ">
                         {{ categoria.nome_categoria }}
                       </a>
                     </li>
